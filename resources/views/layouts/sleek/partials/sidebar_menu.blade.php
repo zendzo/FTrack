@@ -18,7 +18,7 @@
               <li class="{{ active(['admin.sales','admin.sales.*'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('admin.sales') }}">
                   <i class="mdi mdi-arrow-left-bold" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Penjualan</span>
+                  <span class="nav-text">Pengeluaran</span>
                   <span class="badge badge-warning">OUT</span>
                 </a>
               </li>
@@ -26,7 +26,7 @@
               <li class="{{ active(['admin.purchase','admin.purchase.*'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('admin.purchase') }}">
                   <i class="mdi mdi-arrow-right-bold" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Pembelian</span>
+                  <span class="nav-text">Pemasukan</span>
                   <span class="badge badge-success">IN</span>
                 </a>
               </li>
@@ -55,7 +55,7 @@
               <li class="{{active(['admin.category'], 'active')}}">
                 <a class="sidenav-item-link" href="{{ route('admin.category') }}">
                   <i class="mdi mdi-check-circle-outline" style="margin-right: 5px;"></i>
-                  <span class="nav-text">Kategori</span>
+                  <span class="nav-text">Data Kat. Produk</span>
                 </a>
               </li>
     
@@ -76,21 +76,21 @@
               <li class="{{active(['admin.purchase-type'], 'active')}}">
                 <a class="sidenav-item-link" href="{{ route('admin.purchase-type') }}">
                   <i class="mdi mdi-check-circle-outline" style="margin-right: 5px;"></i>
-                  <span class="nav-text">Tipe Pemesanan</span>
+                  <span class="nav-text">Jenis Pembayaran</span>
                 </a>
               </li>
     
               <li class="{{active(['admin.product'], 'active')}}">
                 <a class="sidenav-item-link" href="{{ route('admin.product') }}">
                   <i class="mdi mdi-check-circle-outline" style="margin-right: 5px;"></i>
-                  <span class="nav-text">Produk</span>
+                  <span class="nav-text">Data Produk (HPS)</span>
                 </a>
               </li>
     
               <li class="{{active(['admin.supplier'], 'active')}}">
                 <a class="sidenav-item-link" href="{{ route('admin.supplier') }}">
                   <i class="mdi mdi-check-circle-outline" style="margin-right: 5px;"></i>
-                  <span class="nav-text">Distributor</span>
+                  <span class="nav-text">Kurir</span>
                 </a>
               </li>
     

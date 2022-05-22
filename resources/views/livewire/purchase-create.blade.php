@@ -1,13 +1,13 @@
 <div class="card card-default">
-    <div class="card-header bg-warning card-header-border-bottom">
-        <h2>Detail Pembelian</h2>
+    <div class="card-header bg-success card-header-border-bottom">
+        <h2>Detail Pemasukan</h2>
     </div>
     <div class="card-body">
         {{-- <form wire:submit.prevent="addSales"> --}}
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="name">Distributor</label>
+                        <label for="name">Kurir</label>
                         <select class="form-control @error('supplier_id') is-invalid @enderror" wire:model.lazy="supplier_id">
                             <option value="-1">Select</option>
                             @foreach ($suppliers as $supplier)
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="lname">Kode Penjualan</label>
+                    <label for="lname">Kode Unik</label>
                     <input type="text" class="form-control @error('code') is-invalid @enderror" wire:model.lazy="code" placeholder="CODE">
                     @error('code')
                     <div class="invalid-feedback">
@@ -34,7 +34,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group>
-                        <label for="city">Tipe</label>
+                        <label for="city">Jenis Pembayaran</label>
                         <select class="form-control @error('purchase_type_id') is-invalid @enderror" wire:model.lazy="purchase_type_id">
                             <option value="-1">Select</option>
                             @foreach ($purchasesType as $type)

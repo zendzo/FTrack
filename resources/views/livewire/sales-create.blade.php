@@ -1,6 +1,6 @@
 <div class="card card-default">
-    <div class="card-header bg-success card-header-border-bottom">
-        <h2>Detail Penjualan</h2>
+    <div class="card-header bg-warning card-header-border-bottom">
+        <h2>Detail Pengeluaran</h2>
     </div>
     <div class="card-body">
         {{-- <form wire:submit.prevent="addSales"> --}}
@@ -18,7 +18,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="lname">Kode Penjualan</label>
+                    <label for="lname">Kode Unik</label>
                     <input type="text" class="form-control @error('code') is-invalid @enderror" wire:model.lazy="code" placeholder="CODE">
                     @error('code')
                     <div class="invalid-feedback">
@@ -29,7 +29,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group>
-                        <label for="city">Tipe</label>
+                        <label for="city">Jenis Pengeluaran</label>
                         <select class="form-control @error('sale_type') is-invalid @enderror" wire:model.lazy="sale_type">
                             <option value="-1">Select</option>
                             @foreach ($salesType as $type)

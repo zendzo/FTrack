@@ -27,8 +27,8 @@ class DatabaseSeeder extends Seeder
         Unit::factory()->create();
         Category::factory(10)->create();
         Supplier::factory(10)->create();
-        PurchasesType::factory(5)->create();
-        SalesType::factory(5)->create();
+        PurchasesType::factory(2)->create();
+        SalesType::factory(2)->create();
         Product::factory(10)->create();
         Sale::factory()->saleDate(date('Y-m-d'))->count(10)->create();
         Purchase::factory()->purchaseDate(date('Y-m-d'))->count(10)->create();

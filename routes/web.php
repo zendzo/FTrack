@@ -22,11 +22,11 @@ Route::group(['prefix' => 'cashier','as' => 'cashier.'], function() {
     
     Route::get('/dashboard', [CashierDashboardController::class, 'index'])->name('dashboard');
     
-    Route::get('/sales', [SalesController::class, 'index'])->name('sales');
+    Route::get('/pengeluaran', [SalesController::class, 'index'])->name('sales');
 
-    Route::get('/sales/{id}', [SalesController::class, 'show'])->name('sales.show');
+    Route::get('/pengeluaran/{id}', [SalesController::class, 'show'])->name('sales.show');
 
-    Route::get('/sales/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
+    Route::get('/pengeluaran/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
 
     Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
 
@@ -40,9 +40,9 @@ Route::group(['prefix' => 'secertary', 'as' => 'secertary.'], function () {
     
     Route::get('/dashboard', [SecertaryDashboardController::class, 'index'])->name('dashboard');
     
-    Route::get('/report/sales', [ReportController::class, 'sales'])->name('report.sales');
+    Route::get('/report/pengeluaran', [ReportController::class, 'sales'])->name('report.sales');
 
-    Route::post('report/sales', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
+    Route::post('report/pengeluaran', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
 
     Route::get('/report/purchase', [ReportController::class, 'purchase'])->name('report.purchase');
 
@@ -64,7 +64,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/unit', [UnitController::class, 'index'])->name('unit');
 
-    Route::view('/sales-type', 'administrator.sales-type.index')->name('sales-type');
+    Route::view('/pengeluaran-type', 'administrator.sales-type.index')->name('sales-type');
 
     Route::view('/purchase-type', 'administrator.purchase-type.index')->name('purchase-type');
 
@@ -72,11 +72,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
-    Route::get('/sales', [SalesController::class, 'index'])->name('sales');
+    Route::get('/pengeluaran', [SalesController::class, 'index'])->name('sales');
 
-    Route::get('/sales/{id}', [SalesController::class, 'show'])->name('sales.show');
+    Route::get('/pengeluaran/{id}', [SalesController::class, 'show'])->name('sales.show');
 
-    Route::get('/sales/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
+    Route::get('/pengeluaran/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
 
     Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
 
@@ -88,9 +88,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/role', [RoleController::class, 'index'])->name('role');
 
-    Route::get('/report/sales', [ReportController::class, 'sales'])->name('report.sales');
+    Route::get('/report/pengeluaran', [ReportController::class, 'sales'])->name('report.sales');
 
-    Route::post('report/sales', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
+    Route::post('report/pengeluaran', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
 
     Route::get('/report/purchase', [ReportController::class, 'purchase'])->name('report.purchase');
 

@@ -3,7 +3,7 @@
         <div class="col-lg-12">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">
-                    <h2>Pembelian</h2>
+                    <h2>Form Data Pemasukan</h2>
                 </div>
                 <div class="card-body">
                     @if (session()->has('message'))
@@ -25,7 +25,7 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nama</th>
+                                <th scope="col">Kurir</th>
                                 <th scope="col">Tipe</th>
                                 <th scope="col">Kode</th>
                                 <th scope="col">Tgl. Pesan</th>

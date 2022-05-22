@@ -28,12 +28,13 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-group>
+                    <div class="form-group">
                         <label for="city">Tipe</label>
-                        <select class="form-control @error('name') is-invalid @enderror" wire:model.lazy="sale_type">
+                        <select class="form-control @error('sale_type_id') is-invalid @enderror" wire:model.lazy="sale_type_id">
                             <option value="-1">Select</option>
-                            <option value="1">Langsung</option>
-                            <option value="2">Antar</option>
+                            @foreach ($salesType as $type)
+                            <option value="{{$type->id}}">{{$type->name}} - ({{ $type->description }})</option>
+                            @endforeach
                         </select>
                         @error('sale_type')
                         <div class="invalid-feedback">
