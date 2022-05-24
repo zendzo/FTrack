@@ -143,21 +143,21 @@
               <li class="{{ active(['admin.report.sales'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('admin.report.sales') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Penjualan</span>
+                  <span class="nav-text">Pengeluaran</span>
                 </a>
               </li>
     
               <li class="{{ active(['admin.report.purchase'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('admin.report.purchase') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Pembelian</span>
+                  <span class="nav-text">Pemasukan</span>
                 </a>
               </li>
     
               <li class="{{ active(['admin.report.stock'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('admin.report.stock') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Stock</span>
+                  <span class="nav-text">Kosong</span>
                 </a>
               </li>
     
@@ -188,7 +188,7 @@
               <li class="{{ active(['cashier.sales','cashier.sales.*'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('cashier.sales') }}">
                   <i class="mdi mdi-arrow-left-bold" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Penjualan</span>
+                  <span class="nav-text">Pengeluaran</span>
                   <span class="badge badge-warning">OUT</span>
                 </a>
               </li>
@@ -196,7 +196,7 @@
               <li class="{{ active(['cashier.purchase','cashier.purchase.*'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('cashier.purchase') }}">
                   <i class="mdi mdi-arrow-right-bold" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Pembelian</span>
+                  <span class="nav-text">Pemasukan</span>
                   <span class="badge badge-success">IN</span>
                 </a>
               </li>
@@ -226,21 +226,21 @@
               <li class="{{ active(['secertary.report.sales'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('secertary.report.sales') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Penjualan</span>
+                  <span class="nav-text">Pengeluaran</span>
                 </a>
               </li>
     
               <li class="{{ active(['secertary.report.purchase'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('secertary.report.purchase') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Pembelian</span>
+                  <span class="nav-text">Pemasukan</span>
                 </a>
               </li>
     
               <li class="{{ active(['secertary.report.stock'], 'active') }}">
                 <a class="sidenav-item-link" href="{{ route('secertary.report.stock') }}">
                   <i class="mdi mdi-book-open" style="padding-right: 8px;"></i>
-                  <span class="nav-text">Stock</span>
+                  <span class="nav-text">Kosong</span>
                 </a>
               </li>
     

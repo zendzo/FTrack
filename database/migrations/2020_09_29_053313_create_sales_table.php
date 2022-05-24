@@ -16,7 +16,7 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             // $table->string('user_id');
-            $table->string('name');
+            // $table->string('name');
             $table->string('code',10);
             $table->unsignedBigInteger('sale_type_id');
             $table->date('sale_date');

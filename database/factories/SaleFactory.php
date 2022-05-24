@@ -24,7 +24,7 @@ class SaleFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->firstName,
+            // 'name' => $this->faker->firstName,
             'code' => Str::random(10),
             'sale_type_id' => rand(1,2),
             'sale_date' => Carbon::now(),

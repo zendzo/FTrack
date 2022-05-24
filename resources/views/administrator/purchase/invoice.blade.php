@@ -26,7 +26,7 @@
 @section('content')
 <div id="invoice-print" class="invoice-wrapper rounded border bg-white py-5 px-3 px-md-4 px-lg-5">
   <div class="d-flex justify-content-between">
-    <h2 class="text-dark font-weight-medium">Invoice Pembelian #{{$purchase->id}}</h2>
+    <h2 class="text-dark font-weight-medium">Invoice Pemesanan #{{$purchase->id}}</h2>
     <div class="btn-group dontprint">
       <button onclick="printPageArea('invoice-print')" class="btn btn-sm btn-secondary">
         <i class="mdi mdi-printer"></i> Print</button>
@@ -34,7 +34,7 @@
   </div>
   <div class="row pt-5">
     <div class="col-xl-3 col-lg-4">
-      <p class="text-dark mb-2"><b>Distributor</b></p>
+      <p class="text-dark mb-2"><b>Kurir</b></p>
       <address>
         {{ $purchase->supplier->name }}
         <br> {{ $purchase->supplier->address }}

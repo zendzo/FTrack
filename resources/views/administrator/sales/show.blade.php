@@ -6,25 +6,25 @@
       <div class="col-lg-12">
           <div class="card card-default">
               <div class="card-header bg-info card-header-border-bottom">
-                  <h2>Sales</h2>
+                  <h2>Detail Pengeluaran</h2>
               </div>
               <div class="card-body">
                 <div class="row">
-                  <div class="col-sm-6">
+                  {{-- <div class="col-sm-6">
                       <div class="form-group">
                           <label for="name">Pembeli</label>
                           <input disabled type="text" class="form-control placeholder="John" value="{{ $sales->name }}">
                       </div>
-                  </div>
+                  </div> --}}
                   <div class="col-sm-6">
                       <div class="form-group">
-                      <label for="lname">Kode Penjualan</label>
-                      <input disabled type="text" class="form-control placeholder="CODE" value="{{ $sales->code }}">
+                      <label for="lname">Kode Unil</label>
+                      <input disabled type="text" class="form-control placeholder="CODE" value="{{ Str::upper($sales->code) }}">
                       </div>
                   </div>
                   <div class="col-sm-6">
                       <div class="form-group>
-                          <label for="city">Tipe</label>
+                          <label for="city">Jenis Pengeluaran</label>
                           <select disabled class="form-control">
                             <option>{{ $sales->type->name }} - ({{ $sales->type->description }})</option>
                           </select>
@@ -34,13 +34,13 @@
                       <div class="row">
                           <div class="col-6">
                               <div class="form-group">
-                                  <label for="State">Tgl. Penjualan</label>
+                                  <label for="State">Tgl. Belanja</label>
                                   <input disabled type="text" class="form-control" placeholder="DD-MM-YYY" value="{{ $sales->sale_date }}">
                               </div>
                           </div>
                           <div class="col-6">
                               <div class="form-group">
-                                  <label for="Zip">Tgl. Pengiriman</label>
+                                  <label for="Zip">Tgl. Terima</label>
                                   <input disabled type="text" class="form-control" placeholder="DD-MM-YYY" value="{{ $sales->sent_date }}">
                               </div>
                           </div>

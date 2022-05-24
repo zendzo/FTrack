@@ -10,7 +10,7 @@ use illuminate\Support\Str;
 
 class SalesCreate extends Component
 {
-    public $name;
+    // public $name;
     public $code;
     public $sale_type;
     public $sale_date;
@@ -32,7 +32,7 @@ class SalesCreate extends Component
     public function addSales()
     {
         $this->validate([
-            'name' => 'required|min:3',
+            // 'name' => 'required|min:3',
             'code' => 'required|min:3',
             'sale_type' => 'required|min:1',
             'sale_date' => 'required',
@@ -41,7 +41,7 @@ class SalesCreate extends Component
         ]);
         
         $sales = Sale::create([
-            'name' => $this->name,
+            // 'name' => $this->name,
             'code' => $this->code,
             'sale_type_id' => $this->sale_type,
             'sale_date' => $this->sale_date,
@@ -62,7 +62,7 @@ class SalesCreate extends Component
 
     public function resetInput()
     {
-        $this->name = null;
+        // $this->name = null;
         $this->code = null;
         $this->sale_type = null;
         $this->sale_date = null;

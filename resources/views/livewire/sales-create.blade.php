@@ -5,7 +5,7 @@
     <div class="card-body">
         {{-- <form wire:submit.prevent="addSales"> --}}
             <div class="row">
-                <div class="col-sm-6">
+                {{-- <div class="col-sm-6">
                     <div class="form-group">
                         <label for="name">Pembeli</label>
                         <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name" placeholder="John">
@@ -15,7 +15,7 @@
                         </div>
                         @enderror
                     </div>
-                </div>
+                </div> --}}
                 <div class="col-sm-6">
                     <div class="form-group">
                     <label for="lname">Kode Unik</label>
@@ -47,7 +47,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="State">Tgl. Penjualan</label>
+                                <label for="State">Tgl. Belanja</label>
                                 <input type="text" class="form-control dateRange @error('sale_date') is-invalid @enderror" wire:model="sale_date"
                                 autocomplete="off"
                                 data-provide="datepicker" data-date-autoclose="true" 
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="Zip">Tgl. Pengiriman</label>
+                                <label for="Zip">Tgl. Terima</label>
                                 <input type="text" class="form-control dateRange @error('sent_date') is-invalid @enderror" wire:model="sent_date"
                                 autocomplete="off"
                                 data-provide="datepicker" data-date-autoclose="true" 

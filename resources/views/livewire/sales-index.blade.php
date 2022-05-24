@@ -25,11 +25,10 @@
                         <thead>
                             <tr>
                                 <th scope="col">#</th>
-                                <th scope="col">Nama</th>
-                                <th scope="col">Tipe</th>
+                                <th scope="col">Jenis</th>
                                 <th scope="col">Kode</th>
-                                <th scope="col">Tgl. Penjualan</th>
-                                <th scope="col">Tgl. Pengiriman</th>
+                                <th scope="col">Tgl. Belanja</th>
+                                <th scope="col">Tgl. Terima</th>
                                 <th scope="col">Keterangan</th>
                                 <th>Total</th>
                                 <th>Action</th>
@@ -39,13 +38,12 @@
                             @foreach ($sales as $sale)
                             <tr>
                                 <td scope="row">{{$sale->id}}</td>
-                                <td>{{$sale->name}}</td>
-                                <td>{{$sale->sale_type}}</td>
+                                <td>{{$sale->type->name}}</td>
                                 <td>{{$sale->code}}</td>
                                 <td>{{$sale->sale_date}}</td>
                                 <td>{{$sale->sent_date}}</td>
                                 <td>{{Str::limit($sale->description,10)}}</td>
-                                <td></td>
+                                <td>(Formula Total)</td>
                                 <td>
                                     <button wire:click="getSales({{$sale->id}})" class="btn btn-sm btn-info text-white">Edit</button>
                                     {{-- <button wire:click="destroy({{$sale->id}})" class="btn btn-sm btn-danger text-white">Delete</button> --}}

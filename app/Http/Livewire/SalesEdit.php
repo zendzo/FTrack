@@ -8,7 +8,7 @@ use Livewire\Component;
 
 class SalesEdit extends Component
 {
-    public $name;
+    // public $name;
     public $code;
     public $sale_type_id;
     public $sale_date;
@@ -28,7 +28,7 @@ class SalesEdit extends Component
 
     public function showSales($sales)
     {
-        $this->name = $sales['name'];
+        // $this->name = $sales['name'];
         $this->code = $sales['code'];
         $this->sale_type_id = $sales['sale_type_id'];
         $this->sale_date = $sales['sale_date'];
@@ -40,14 +40,14 @@ class SalesEdit extends Component
     public function updateSales()
     {
         $this->validate([
-            'name' => 'required|min:3',
+            // 'name' => 'required|min:3',
             'description' => 'required|min:3'
         ]);
 
         if ($this->id) {
             $sales = Sale::findOrfail($this->salesId);
             $sales->update([
-                'name' => $this->name,
+                // 'name' => $this->name,
                 'sale_type_id' => $this->sale_type_id,
                 'sale_date' => $this->sale_date,
                 'sent_date' => $this->sent_date,

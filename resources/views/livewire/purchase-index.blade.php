@@ -47,7 +47,7 @@
                                 <td>{{$purchase->sent_date}}</td>
                                 <td>{{$purchase->recipient}}</td>
                                 <td>{{$purchase->address}}</td>
-                                <td></td>
+                                <td>(Formula Total)</td>
                                 <td>
                                     <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>
                                     {{-- <button wire:click="destroy({{$purchase->id}})" class="btn btn-sm btn-danger text-white">Delete</button> --}}

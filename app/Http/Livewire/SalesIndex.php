@@ -22,12 +22,12 @@ class SalesIndex extends Component
 
     public function handleSalesStored($sales)
     {
-        session()->flash('message', 'Sales '.$sales['name'].'  Successfully Created');
+        session()->flash('message', 'Successfully Created');
     }
 
     public function handleSalesUpdated($sales)
     {
-        session()->flash('message', 'Sales '.$sales['name'].'  Successfully Updated');
+        session()->flash('message', 'Successfully Updated');
 
         $this->editSales = false;
     }

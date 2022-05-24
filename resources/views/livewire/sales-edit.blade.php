@@ -7,18 +7,7 @@
             <div class="row">
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="name">Pembeli</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name" placeholder="John">
-                        @error('name')
-                        <div class="invalid-feedback">
-                            {{ $message }}
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="form-group">
-                    <label for="lname">Kode Penjualan</label>
+                    <label for="lname">Kode Unik</label>
                     <input type="text" class="form-control @error('code') is-invalid @enderror" wire:model.lazy="code" placeholder="CODE">
                     @error('code')
                     <div class="invalid-feedback">
@@ -29,7 +18,7 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                        <label for="city">Tipe</label>
+                        <label for="city">Jenis Pengeluaran</label>
                         <select class="form-control @error('sale_type_id') is-invalid @enderror" wire:model.lazy="sale_type_id">
                             <option value="-1">Select</option>
                             @foreach ($salesType as $type)
@@ -47,7 +36,7 @@
                     <div class="row">
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="State">Tgl. Penjualan</label>
+                                <label for="State">Tgl. Belanja</label>
                                 <input type="text" class="form-control @error('sale_date') is-invalid @enderror" wire:model.lazy="sale_date"
                                 autocomplete="off"
                                 data-provide="datepicker" data-date-autoclose="true" 
@@ -63,7 +52,7 @@
                         </div>
                         <div class="col-6">
                             <div class="form-group">
-                                <label for="Zip">Tgl. Pengiriman</label>
+                                <label for="Zip">Tgl. Terima</label>
                                 <input type="text" class="form-control @error('sent_date') is-invalid @enderror" wire:model.lazy="sent_date"
                                 autocomplete="off"
                                 data-provide="datepicker" data-date-autoclose="true" 
