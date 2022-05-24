@@ -20,7 +20,8 @@ class CreatePurchasesTable extends Migration
             $table->unsignedBigInteger('purchase_type_id');
             $table->date('purchase_date');
             $table->date('sent_date');
-            $table->string('description');
+            $table->string('address');
+            $table->string('recipient');
             $table->integer('paid_amount')->nullable();
             $table->boolean('completed')->default(false)->nullable();
             $table->boolean('confirmed_by_admin')->default(false)->nullable();

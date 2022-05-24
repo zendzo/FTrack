@@ -86,13 +86,25 @@
                 </div>
                 <div class="col-sm-6">
                     <div class="form-group">
-                    <label for="lname">Keterangan</label>
-                    <input type="text" class="form-control @error('description') is-invalid @enderror" wire:model.lazy="description" placeholder="Keterangan">
-                    @error('description')
+                    <label for="lname">Penerima</label>
+                    <input type="text" class="form-control @error('recipient') is-invalid @enderror" wire:model.lazy="recipient" placeholder="Keterangan">
+                    @error('recipient')
                     <div class="invalid-feedback">
                         {{ $message }}
                     </div>
                     @enderror
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="lname">Alamat Penerima</label>
+                        <input type="text" class="form-control @error('address') is-invalid @enderror" wire:model.lazy="address" placeholder="Keterangan">
+                        @error('address')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
                     </div>
                 </div>
             </div>

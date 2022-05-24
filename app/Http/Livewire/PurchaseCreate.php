@@ -16,7 +16,8 @@ class PurchaseCreate extends Component
     public $purchase_type_id;
     public $purchase_date;
     public $sent_date;
-    public $description;
+    public $address;
+    public $recipient;
 
     public function render()
     {
@@ -39,7 +40,8 @@ class PurchaseCreate extends Component
             'purchase_type_id' => 'required|min:1',
             'purchase_date' => 'required',
             'sent_date' => 'required',
-            'description' => 'required|min:5'
+            'address' => 'required|min:5',
+            'recipient' => 'required|min:5'
         ]);
         
         $purchases = Purchase::create([
@@ -48,7 +50,8 @@ class PurchaseCreate extends Component
             'purchase_type_id' => $this->purchase_type_id,
             'purchase_date' => $this->purchase_date,
             'sent_date' => $this->sent_date,
-            'description' => $this->description
+            'address' => $this->address,
+            'recipient' => $this->recipient
         ]);
 
         $this->resetInput();
@@ -69,6 +72,7 @@ class PurchaseCreate extends Component
         $this->purchase_type_id = null;
         $this->purchase_date = null;
         $this->sent_date = null;
-        $this->description = null;
+        $this->address = null;
+        $this->recipient = null;
     }
 }

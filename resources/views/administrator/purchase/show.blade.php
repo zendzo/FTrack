@@ -3,14 +3,14 @@
 @section('content')
 <div class="card card-default">
   <div class="card-header bg-warning card-header-border-bottom">
-      <h2>Purchase Detail</h2>
+      <h2>Detail Pesanan</h2>
   </div>
   <div class="card-body">
       {{-- <form wire:submit.prevent="addSales"> --}}
           <div class="row">
               <div class="col-sm-6">
                   <div class="form-group">
-                      <label for="name">Distributor</label>
+                      <label for="name">Kurir</label>
                       <select disabled class="form-control">
                           <option>{{ $purchase->supplier->name }}</option>
                       </select>
@@ -24,7 +24,7 @@
               </div>
               <div class="col-sm-6">
                   <div class="form-group>
-                      <label for="city">Tipe</label>
+                      <label for="city">Jenis Pembayaran</label>
                       <select disabled class="form-control">
                         <option>{{ $purchase->purchaseType->name }} - ({{$purchase->purchaseType->description}})</option>
                       </select>
@@ -52,12 +52,19 @@
               </div>
               <div class="col-sm-6">
                   <div class="form-group">
-                  <label for="lname">Keterangan</label>
+                  <label for="lname">Penerima</label>
                   <input disabled type="text" class="form-control"
-                  value="{{ $purchase->description }}"
+                  value="{{ $purchase->recipient }}"
                   >
                   </div>
               </div>
+
+              <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lname">Alamat Penerima</label>
+                    <input disabled type="text" class="form-control" value="{{ $purchase->address }}">
+                </div>
+            </div>
           </div>
           <livewire:purchase-list :purchaseId="$purchase->id"></livewire:purchase-list>
               <livewire:purchase-entry :purchaseId="$purchase->id"></livewire:purchase-entry>

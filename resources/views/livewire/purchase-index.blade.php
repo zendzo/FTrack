@@ -30,7 +30,8 @@
                                 <th scope="col">Kode</th>
                                 <th scope="col">Tgl. Pesan</th>
                                 <th scope="col">Tgl. Terima</th>
-                                <th scope="col">Keterangan</th>
+                                <th scope="col">Penerima</th>
+                                <th scope="col">Alamat</th>
                                 <th>Total</th>
                                 <th>Action</th>
                             </tr>
@@ -44,7 +45,8 @@
                                 <td>{{$purchase->code}}</td>
                                 <td>{{$purchase->purchase_date}}</td>
                                 <td>{{$purchase->sent_date}}</td>
-                                <td>{{Str::limit($purchase->description,10)}}</td>
+                                <td>{{$purchase->recipient}}</td>
+                                <td>{{$purchase->address}}</td>
                                 <td></td>
                                 <td>
                                     <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>

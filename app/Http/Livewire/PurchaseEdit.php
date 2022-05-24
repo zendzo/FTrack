@@ -14,7 +14,8 @@ class PurchaseEdit extends Component
     public $purchase_type_id;
     public $purchase_date;
     public $sent_date;
-    public $description;
+    public $address;
+    public $recipient;
     public $purchaseId;
 
     protected $listeners = [
@@ -35,7 +36,8 @@ class PurchaseEdit extends Component
         $this->purchase_type_id = $purchase['purchase_type_id'];
         $this->purchase_date = $purchase['purchase_date'];
         $this->sent_date = $purchase['sent_date'];
-        $this->description = $purchase['description'];
+        $this->address = $purchase['address'];
+        $this->recipient = $purchase['recipient'];
         $this->purchaseId = $purchase['id'];
     }
 
@@ -53,7 +55,8 @@ class PurchaseEdit extends Component
                 'purchase_type_id' => $this->purchase_type_id,
                 'purchase_date' => $this->purchase_date,
                 'sent_date' => $this->sent_date,
-                'description' => $this->description
+                'adress' => $this->adress,
+                'recipient' => $this->recipient
             ]);
         }
 
