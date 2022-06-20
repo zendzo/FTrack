@@ -24,7 +24,7 @@ class CategoryTableSeeder extends Seeder
             Category::create([
                 'name' => $category,
                 'description' => $category,
-                'code' => "00".$key+1
+                'code' => $key
             ]);
         }
     }
