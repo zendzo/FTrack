@@ -66,7 +66,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::view('/pengeluaran-type', 'administrator.sales-type.index')->name('sales-type');
 
-    Route::view('/purchase-type', 'administrator.purchase-type.index')->name('purchase-type');
+    Route::view('/pemasukan-type', 'administrator.purchase-type.index')->name('purchase-type');
 
     Route::get('/distributor', [SupplierController::class, 'index'])->name('supplier');
 
@@ -96,9 +96,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::post('report/purchase', [ReportController::class, 'getPurchaseByDate'])->name('report.purchase.by-date');
 
-    Route::get('/report/stock', [ReportController::class, 'stock'])->name('report.stock');
+    Route::get('/report/laba', [ReportController::class, 'stock'])->name('report.stock');
 
-    Route::post('report/stock', [ReportController::class, 'getStockbyDate'])->name('report.stock.by-date');
+    Route::post('report/laba', [ReportController::class, 'getStockbyDate'])->name('report.stock.by-date');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

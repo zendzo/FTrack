@@ -24,11 +24,11 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(RolesTableSeeder::class);
         $this->call(UserAdminSeeder::class);
-        Unit::factory()->create();
+        $this->call(UnitsTableSeeder::class);
         $this->call(CategoryTableSeeder::class);
         Supplier::factory(10)->create();
-        PurchasesType::factory(2)->create();
-        SalesType::factory(2)->create();
+        $this->call(PurchaseTypeSeeder::class);
+        $this->call(SalesTypeSeeder::class);
         $this->call(ProductTableSeeder::class);
         Sale::factory()->saleDate(date('Y-m-d'))->count(10)->create();
         Purchase::factory()->purchaseDate(date('Y-m-d'))->count(10)->create();

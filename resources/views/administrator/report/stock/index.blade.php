@@ -98,7 +98,7 @@
       <i class="mdi mdi-cart-outline text-warning mr-4"></i>
       <div class="media-body align-self-center">
         <h4 class="text-primary mb-2">{{ array_sum($purchaseProducts) }}</h4>
-        <p>(Pembelian) Barang Masuk</p>
+        <p>(Pemasukan) Jasa Kurir</p>
       </div>
     </div>
   </div>
@@ -107,7 +107,7 @@
       <i class="mdi mdi-cart-outline text-danger mr-4"></i>
       <div class="media-body align-self-center">
         <h4 class="text-primary mb-2">{{ array_sum($saleProducts) }}</h4>
-        <p>(Penjualan) Barang Keluar</p>
+        <p>(Pengeluaran) Oprasional</p>
       </div>
     </div>
   </div>
@@ -118,7 +118,7 @@
     <div class="col-lg-12">
       <div class="card card-default">
         <div class="card-header card-header-border-bottom">
-          <h2><i class="mdi mdi-truck-fast"></i> Laporan Stock </h2>
+          <h2><i class="mdi mdi-truck-fast"></i> Laporan Laba </h2>
         </div>
         <div class="card-body">
           @if (session()->has('message'))
