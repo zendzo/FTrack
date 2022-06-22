@@ -95,7 +95,7 @@
 <div class="row">
   <div class="col-md-6 col-lg-6 col-xl-6">
     <div class="media widget-media p-4 rounded bg-white border">
-      <i class="mdi mdi-cart-outline text-warning mr-4"></i>
+      <i class="mdi mdi-currency-usd text-warning mr-4"></i>
       <div class="media-body align-self-center">
         <h4 class="text-primary mb-2">{{ array_sum($purchaseProducts) }}</h4>
         <p>(Pemasukan) Jasa Kurir</p>
@@ -104,7 +104,7 @@
   </div>
   <div class="col-md-6 col-lg-6 col-xl-6">
     <div class="media widget-media p-4 rounded bg-white border">
-      <i class="mdi mdi-cart-outline text-danger mr-4"></i>
+      <i class="mdi mdi-currency-usd text-danger mr-4"></i>
       <div class="media-body align-self-center">
         <h4 class="text-primary mb-2">{{ array_sum($saleProducts) }}</h4>
         <p>(Pengeluaran) Oprasional</p>
@@ -201,7 +201,7 @@
                 <th scope="col">Tgl. Pengiriman</th>
                 <th scope="col">Keterangan</th>
                 <th>Quantity</th>
-                <th scope="col">Stok Gudang</th>
+                {{-- <th scope="col">Stok Gudang</th> --}}
                 <th>Total</th>
               </tr>
             </thead>
@@ -225,7 +225,7 @@
                   <td>{{ $product->purchase[0]->sent_date }}</td>
                   <td>{{ $product->purchase[0]->description }}</td>
                   <td>{{ $product->pivot->quantity }}</td>
-                  <td>{{ $product->quantity }}</td>
+                  {{-- <td>{{ $product->quantity }}</td> --}}
                   <td>{{ $product->pivot->grand_total }}</td>
                 </tr>
                 @endforeach

@@ -109,14 +109,14 @@ class ReportController extends Controller
         $saleProducts = [];
         foreach ($sales as $key => $sale) {
             foreach ($sale->products as $key => $product) {
-                array_push($saleProducts,$product->pivot->quantity);
+                array_push($saleProducts,$product->pivot->grand_total);
             }
         }
 
         $purchaseProducts = [];
         foreach ($purchases as $key => $purchase) {
             foreach ($purchase->products as $key => $product) {
-                array_push($purchaseProducts, $product->pivot->quantity);
+                array_push($purchaseProducts, $product->pivot->grand_total);
             }
         }
 
@@ -143,14 +143,14 @@ class ReportController extends Controller
         $saleProducts = [];
         foreach ($sales as $key => $sale) {
             foreach ($sale->products as $key => $product) {
-                array_push($saleProducts, $product->pivot->quantity);
+                array_push($saleProducts, $product->pivot->grand_total);
             }
         }
 
         $purchaseProducts = [];
         foreach ($purchases as $key => $purchase) {
             foreach ($purchase->products as $key => $product) {
-                array_push($purchaseProducts, $product->pivot->quantity);
+                array_push($purchaseProducts, $product->pivot->grand_total);
             }
         }
 
