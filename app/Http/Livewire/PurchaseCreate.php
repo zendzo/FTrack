@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Customer;
 use Livewire\Component;
 use App\Models\Purchase;
 use App\Models\PurchasesType;
@@ -23,13 +24,20 @@ class PurchaseCreate extends Component
     {
         return view('livewire.purchase-create',[
             'purchasesType' => PurchasesType::all(),
-            'suppliers' => Supplier::all()
+            'suppliers' => Supplier::all(),
+            'recipients' => Customer::all()
         ]);
     }
 
     public function mount()
     {
         $this->code = strtoupper(Str::random(10));
+    }
+
+    public function updatedRecipient()
+    {
+        $customer = Customer::whereId($this->recipient)->first();
+        $this->address = $customer->address;
     }
 
     public function addPurchases()
@@ -41,7 +49,7 @@ class PurchaseCreate extends Component
             'purchase_date' => 'required',
             'sent_date' => 'required',
             'address' => 'required|min:5',
-            'recipient' => 'required|min:5'
+            'recipient' => 'required|min:1'
         ]);
         
         $purchases = Purchase::create([

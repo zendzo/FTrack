@@ -30,7 +30,7 @@ class PurchaseFactory extends Factory
             'purchase_date' => Carbon::now(),
             'sent_date' => Carbon::now()->addDay(),
             'address' => $this->faker->address,
-            'recipient' => $this->faker->firstName,
+            'recipient' => rand(1,20),
             'paid_amount' => null,
             'completed' => false,
             'confirmed_by_admin' => false,

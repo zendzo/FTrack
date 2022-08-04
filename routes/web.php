@@ -78,11 +78,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/pengeluaran/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
 
-    Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
+    Route::get('/pemasukan', [PurchaseController::class, 'index'])->name('purchase');
 
-    Route::get('/purchase/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
+    Route::get('/pemasukan/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
 
-    Route::get('/purchase/invoice/{id}', [PurchaseController::class, 'invoice'])->name('purchase.invoice');
+    Route::get('/pemasukan/invoice/{id}', [PurchaseController::class, 'invoice'])->name('purchase.invoice');
 
     Route::get('/user', [UserController::class, 'index'])->name('user');
 

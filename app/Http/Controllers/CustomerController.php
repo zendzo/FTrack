@@ -9,11 +9,6 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $sales = Sale::whereHas('products')
-            ->with('products')
-            ->orderBy('sale_date', 'DESC')
-            ->paginate(20);
-
-        return view('administrator.customer.index', compact(['sales']));
+        return view('administrator.customer.index'); 
     }
 }

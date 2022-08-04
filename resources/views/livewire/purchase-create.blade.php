@@ -87,7 +87,12 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                     <label for="lname">Penerima</label>
-                    <input type="text" class="form-control @error('recipient') is-invalid @enderror" wire:model.lazy="recipient" placeholder="Keterangan">
+                    <select class="form-control @error('recipient') is-invalid @enderror" wire:model.lazy="recipient">
+                        <option value="-1">Select</option>
+                        @foreach ($recipients as $recipient)
+                        <option value="{{$recipient->id}}">{{$recipient->name}} - ({{ $recipient->description }})</option>
+                        @endforeach
+                    </select>
                     @error('recipient')
                     <div class="invalid-feedback">
                         {{ $message }}

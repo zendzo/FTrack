@@ -54,7 +54,7 @@
                   <div class="form-group">
                   <label for="lname">Penerima</label>
                   <input disabled type="text" class="form-control"
-                  value="{{ $purchase->recipient }}"
+                  value="{{ $purchase->customer->name }}"
                   >
                   </div>
               </div>

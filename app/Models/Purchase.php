@@ -32,6 +32,11 @@ class Purchase extends Model
         return $this->belongsTo(Supplier::class);
     }
 
+    public function customer()
+    {
+        return $this->belongsTo(Customer::class, 'recipient');
+    }
+
     public function purchaseType()
     {
         return $this->belongsTo(PurchasesType::class);

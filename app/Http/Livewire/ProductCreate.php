@@ -6,6 +6,7 @@ use App\Models\Category;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Unit;
+use illuminate\Support\Str;
 
 class ProductCreate extends Component
 {
@@ -22,6 +23,11 @@ class ProductCreate extends Component
             'categories' => Category::all(),
             'units' => Unit::all()
         ]);
+    }
+
+    public function mount()
+    {
+        $this->code = strtoupper(Str::random(5));
     }
 
     public function addProduct()
