@@ -231,7 +231,7 @@ class ProductTableSeeder extends Seeder
                 'description' => $str_prod[3],
                 'unit_id' => $str_prod[4],
                 'price' => $str_prod[5],
-                'quantity' => $str_prod[6],
+                // 'quantity' => $str_prod[6],
                 'status' => true
             ]);
         }
