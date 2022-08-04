@@ -88,17 +88,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/role', [RoleController::class, 'index'])->name('role');
 
-    Route::get('/report/pengeluaran', [ReportController::class, 'sales'])->name('report.sales');
+    Route::get('/laporan/pengeluaran', [ReportController::class, 'sales'])->name('report.sales');
 
-    Route::post('report/pengeluaran', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
+    Route::post('laporan/pengeluaran', [ReportController::class, 'getSalesByDate'])->name('report.sales.by-date');
 
-    Route::get('/report/purchase', [ReportController::class, 'purchase'])->name('report.purchase');
+    Route::get('/laporan/purchase', [ReportController::class, 'purchase'])->name('report.purchase');
 
-    Route::post('report/purchase', [ReportController::class, 'getPurchaseByDate'])->name('report.purchase.by-date');
+    Route::post('laporan/purchase', [ReportController::class, 'getPurchaseByDate'])->name('report.purchase.by-date');
 
-    Route::get('/report/laba', [ReportController::class, 'stock'])->name('report.stock');
+    Route::get('/laporan/laba', [ReportController::class, 'stock'])->name('report.stock');
 
-    Route::post('report/laba', [ReportController::class, 'getStockbyDate'])->name('report.stock.by-date');
+    Route::post('laporan/laba', [ReportController::class, 'getStockbyDate'])->name('report.stock.by-date');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

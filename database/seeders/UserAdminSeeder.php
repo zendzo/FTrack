@@ -16,18 +16,27 @@ class UserAdminSeeder extends Seeder
      */
     public function run()
     {
-        $user = new User;
-
-            $user->name = "Accounting";
-            $user->email = "accounting@foodtrack.com";
-            $user->email_verified_at = now();
-            $user->password = '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi'; // password
-            $user->remember_token = Str::random();
-            $user->role_id = 1;
-            $save = $user->save();
-
-        if ($save) {
-            $this->command->info("Successfully create accounting user!");
+        $users = [
+            [
+                'name' => 'Accounting',
+                'email' => 'accounting@foodtrack.com',
+            ],
+            [
+                'name' => 'Front Office',
+                'email' => 'fo@foodtrack.com',
+            ]
+        ];
+        foreach ($users as $key => $user) {
+            User::create([
+                'name' => $user['name'],
+                'email' => $user['email'],
+                'email_verified_at' => now(),
+                'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+                'remember_token' => Str::random(),
+                'role_id' => $key+=1
+            ]);
         }
+
+        $this->command->info("Successfully create accounting user!");
     }
 }

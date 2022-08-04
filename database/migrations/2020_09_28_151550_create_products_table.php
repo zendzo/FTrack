@@ -22,6 +22,7 @@ class CreateProductsTable extends Migration
             $table->string('description');
             $table->unsignedBigInteger('unit_id');
             $table->boolean('status')->default(true);
+            $table->integer('price');
             $table->timestamps();
         });
 

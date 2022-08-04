@@ -1,5 +1,5 @@
 <div>
-    <form class="horizontal-form" wire:submit.prevent="updateSupplier">
+    <form class="horizontal-form" wire:submit.prevent="updateCustomer">
         <div class="form-group row">
             <div class="col-12 col-md-3 text-right">
                 <label for="name">Nama</label>

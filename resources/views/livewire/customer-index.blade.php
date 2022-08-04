@@ -16,9 +16,9 @@
                     @endif
 
                     @if ($editCustomer)
-                    <livewire:supplier-edit></livewire:supplier-edit>
+                    <livewire:customer-edit></livewire:customer-edit>
                     @else
-                    <livewire:supplier-create></livewire:supplier-create>
+                    <livewire:customer-create></livewire:customer-create>
                     @endif
                     <hr>
                     <table class="table table-hover ">
@@ -33,16 +33,16 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($categories as $supplier)
+                            @foreach ($categories as $customer)
                             <tr>
-                                <td scope="row">{{$supplier->id}}</td>
-                                <td>{{$supplier->name}}</td>
-                                <td>{{$supplier->address}}</td>
-                                <td>{{$supplier->phone}}</td>
-                                <td>{{$supplier->description}}</td>
+                                <td scope="row">{{$customer->id}}</td>
+                                <td>{{$customer->name}}</td>
+                                <td>{{$customer->address}}</td>
+                                <td>{{$customer->phone}}</td>
+                                <td>{{$customer->description}}</td>
                                 <td>
-                                    <button wire:click="getSupplier({{$supplier->id}})" class="btn btn-sm btn-info text-white">Edit</button>
-                                    <button wire:click="destroy({{$supplier->id}})" class="btn btn-sm btn-danger text-white">Delete</button>
+                                    <button wire:click="getCustomer({{$customer->id}})" class="btn btn-sm btn-info text-white">Edit</button>
+                                    <button wire:click="destroy({{$customer->id}})" class="btn btn-sm btn-danger text-white">Delete</button>
                                 </td>
                             </tr>
                             @endforeach
