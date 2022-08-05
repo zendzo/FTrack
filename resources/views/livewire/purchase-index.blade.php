@@ -54,7 +54,7 @@
                                     <a href="{{ route(request()->segment(1).'.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
                                         <i class=" mdi mdi-checkbox-marked-outline mr-1"></i> Process
                                     </a>
-                                    @if ($purchase->products->count() > 0)
+                                    @if ($purchase->products->count() > 0 && auth()->user()->role_id == 1)
                                         <a href="{{ route(request()->segment(1).'.purchase.invoice', $purchase->id) }}" wire:click="showPurchases" type="button"
                                             class="mb-1 btn btn-sm btn-warning">
                                             <i class=" mdi mdi-file-document"></i> Invoice
