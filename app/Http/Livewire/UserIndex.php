@@ -25,12 +25,12 @@ class UserIndex extends Component
 
     public function handleUserStored($user)
     {
-        session()->flash('message', 'User '.$user['name'].'  Successfully Created');
+        session()->flash('message', 'User Successfully Created');
     }
 
     public function handleUserUpdated($user)
     {
-        session()->flash('message', 'User '.$user['name'].'  Successfully Updated');
+        session()->flash('message', 'User Successfully Updated');
         
         $this->editUser = false;
     }

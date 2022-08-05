@@ -24,14 +24,16 @@ class UserCreate extends Component
 
     public function addUser()
     {
+        
         $this->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', new Password],
             'role_id' => ['required'],
         ]);
-
-        $user = User::create([
+        
+        $user = new User;
+        User::create([
             'name' => $this->name,
             'email' => $this->email,
             'password' => Hash::make($this->password),

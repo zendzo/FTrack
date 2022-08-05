@@ -31,7 +31,8 @@
                 <label for="role_id">Role</label>
             </div>
             <div class="col-12 col-md-9">
-                <select class="form-control" name="role_id" id="role_id" wire:model.lazy="role_id">
+                <select class="form-control" name="role_id" id="role_id" wire:model="role_id">
+                    <option value="-1">Select</option>
                     @foreach ($roles as $role)
                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                     @endforeach

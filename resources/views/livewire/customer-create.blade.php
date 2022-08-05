@@ -5,7 +5,7 @@
                 <label for="name">Nama</label>
             </div>
             <div class="col-12 col-md-9">
-                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name" placeholder="Nama Kurir">
+                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" wire:model.lazy="name" placeholder="Nama Customer">
                 @error('name')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -18,7 +18,7 @@
                 <label for="address">Alamat</label>
             </div>
             <div class="col-12 col-md-9">
-                <input type="text" id="address" class="form-control @error('address') is-invalid @enderror" wire:model.lazy="address" placeholder="Alamat Kurir">
+                <input type="text" id="address" class="form-control @error('address') is-invalid @enderror" wire:model.lazy="address" placeholder="Alamat Customer">
                 @error('address')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -31,7 +31,7 @@
                 <label for="phone">No. Hp</label>
             </div>
             <div class="col-12 col-md-9">
-                <input type="text" id="phone" class="form-control @error('phone') is-invalid @enderror" wire:model.lazy="phone" placeholder="Kontak Kurir">
+                <input type="text" id="phone" class="form-control @error('phone') is-invalid @enderror" wire:model.lazy="phone" placeholder="Kontak Customer">
                 @error('phone')
                 <div class="invalid-feedback">
                     {{ $message }}
