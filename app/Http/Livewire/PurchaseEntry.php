@@ -45,12 +45,10 @@ class PurchaseEntry extends Component
         ]);
 
         $purchase = Purchase::findOrfail($this->purchaseId);
-
-        $product = Product::findOrfail($this->product_id);
-
-        $product->quantity = (int) $product->quantity + (int) $this->quantity;
-
-        $product->save();
+        // update stock (quantity)
+        // $product = Product::findOrfail($this->product_id);
+        // $product->quantity = (int) $product->quantity + (int) $this->quantity;
+        // $product->save();
 
         $purchase->products()->attach(
             $this->product_id,[

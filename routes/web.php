@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [UserDashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
-Route::group(['prefix' => 'cashier','as' => 'cashier.'], function() {
+Route::group(['prefix' => 'front-office','as' => 'front-office.'], function() {
     
     Route::get('/dashboard', [CashierDashboardController::class, 'index'])->name('dashboard');
     
@@ -28,11 +28,11 @@ Route::group(['prefix' => 'cashier','as' => 'cashier.'], function() {
 
     Route::get('/pengeluaran/invoice/{id}', [SalesController::class,  'invoice'])->name('sales.invoice');
 
-    Route::get('/purchase', [PurchaseController::class, 'index'])->name('purchase');
+    Route::get('/pemasukan', [PurchaseController::class, 'index'])->name('purchase');
 
-    Route::get('/purchase/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
+    Route::get('/pemasukan/{id}', [PurchaseController::class, 'show'])->name('purchases.show');
 
-    Route::get('/purchase/invoice/{id}', [PurchaseController::class, 'invoice'])->name('purchase.invoice');
+    Route::get('/pemasukan/invoice/{id}', [PurchaseController::class, 'invoice'])->name('purchase.invoice');
 
 });
 

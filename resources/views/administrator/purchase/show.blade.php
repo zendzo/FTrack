@@ -73,7 +73,7 @@
                     <i class=" mdi mdi-file-document"></i> Invoice
                 </a>
             @else
-                <a href="{{ route('cashier.purchase.invoice', $purchase->id) }}" class="btn btn-lg btn-warning">
+                <a href="{{ route('front-office.purchase.invoice', $purchase->id) }}" class="btn btn-lg btn-warning">
                     <i class=" mdi mdi-file-document"></i> Invoice
                 </a>
             @endif

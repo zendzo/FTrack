@@ -67,7 +67,7 @@ class PurchaseCreate extends Component
         $this->emit('purchasesStored',$purchases);
 
         if (Auth::user()->role_id === 2) {
-            return redirect()->route('cashier.purchases.show', $purchases->id);
+            return redirect()->route('front-office.purchases.show', $purchases->id);
         }
         
         return redirect()->route('admin.purchases.show', $purchases->id);

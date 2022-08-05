@@ -47,15 +47,15 @@
                                 <td>{{$purchase->sent_date}}</td>
                                 <td>{{$purchase->recipient}}</td>
                                 <td>{{$purchase->address}}</td>
-                                <td>(Formula Total)</td>
+                                <td>(Total Formula)</td>
                                 <td>
                                     <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>
                                     {{-- <button wire:click="destroy({{$purchase->id}})" class="btn btn-sm btn-danger text-white">Delete</button> --}}
-                                    <a href="{{ route('admin.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
+                                    <a href="{{ route(request()->segment(1).'.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
                                         <i class=" mdi mdi-checkbox-marked-outline mr-1"></i> Process
                                     </a>
                                     @if ($purchase->products->count() > 0)
-                                        <a href="{{ route('admin.purchase.invoice', $purchase->id) }}" wire:click="showPurchases" type="button"
+                                        <a href="{{ route(request()->segment(1).'.purchase.invoice', $purchase->id) }}" wire:click="showPurchases" type="button"
                                             class="mb-1 btn btn-sm btn-warning">
                                             <i class=" mdi mdi-file-document"></i> Invoice
                                         </a>

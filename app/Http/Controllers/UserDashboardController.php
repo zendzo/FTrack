@@ -13,7 +13,7 @@ class UserDashboardController extends Controller
             if (Auth::user()->role_id === 1) {
                 return redirect('admin/dashboard');
             }elseif (Auth::user()->role_id === 2) {
-                return redirect('cashier/dashboard');
+                return redirect('front-office/dashboard');
             }elseif (Auth::user()->role_id === 3) {
                 return redirect('secertary/dashboard');
             }
