@@ -33,6 +33,7 @@
                 </td>
                 <td>
                     <input type="text" wire:model="grand_total" class="form-control" disabled>
+                    <input type="hidden" wire:model="delivery_fee" class="form-control" disabled>
                 </td>
             </tr>
         </tbody>

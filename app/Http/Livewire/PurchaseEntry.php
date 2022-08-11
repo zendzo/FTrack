@@ -4,6 +4,7 @@ namespace App\Http\Livewire;
 
 use App\Models\Product;
 use App\Models\Purchase;
+use App\Models\Setting;
 use Livewire\Component;
 
 class PurchaseEntry extends Component
@@ -13,7 +14,9 @@ class PurchaseEntry extends Component
     public $unit;
     public $price;
     public $grand_total;
+    public $delivery_fee;
     public $purchaseId;
+    public $setting;
 
 
     public function render()
@@ -21,6 +24,11 @@ class PurchaseEntry extends Component
         return view('livewire.purchase-entry',[
             'products' => Product::select(['id','name'])->get()
         ]);
+    }
+
+    public function mount()
+    {
+        $this->setting = Setting::findOrfail(1);
     }
 
     public function updatedProductId()
@@ -35,6 +43,7 @@ class PurchaseEntry extends Component
     public function updatedQuantity()
     {
         $this->grand_total = (int) $this->quantity * $this->price;
+        $this->delivery_fee = (int) $this->grand_total * $this->setting->margin;
     }
 
     public function addEntry()
@@ -53,7 +62,8 @@ class PurchaseEntry extends Component
         $purchase->products()->attach(
             $this->product_id,[
             'quantity' => $this->quantity,
-            'grand_total' => $this->grand_total
+            'grand_total' => $this->grand_total,
+            'delivery_fee' => $this->delivery_fee
             ]);
         
         $products = $purchase->products;

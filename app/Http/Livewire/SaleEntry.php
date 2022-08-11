@@ -48,12 +48,12 @@ class SaleEntry extends Component
 
         $product = Product::findOrfail($this->product_id);
 
-        if ($product->quantity < $this->quantity) {
-            $this->emit('saleQuantity', $product->quantity);
-        }else{
-            $product->quantity = (int) $product->quantity - (int) $this->quantity;
+        // if ($product->quantity < $this->quantity) {
+        //     $this->emit('saleQuantity', $product->quantity);
+        // }else{
+            // $product->quantity = (int) $product->quantity - (int) $this->quantity;
 
-            $product->save();
+            // $product->save();
 
             $sales->products()->attach(
                 $this->product_id,
@@ -68,7 +68,7 @@ class SaleEntry extends Component
             $this->resetInput();
 
             $this->emit('saleEntryAdded', $products);
-        }
+        // }
     }
 
     public function resetInput()

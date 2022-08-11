@@ -13,6 +13,7 @@ class PurchaseList extends Component
     public $products;
     public $purchaseId;
     public $grandTotal;
+    public $deliveryFee;
 
     protected $listeners = [
         'purchaseEntryAdded' => 'handlePurchaseAdded',
@@ -25,7 +26,8 @@ class PurchaseList extends Component
 
         return view('livewire.purchase-list',[
             'products' => $this->products,
-            'grandtotal' => $this->grandTotal
+            'grandtotal' => $this->grandTotal,
+            'deliveryFee' => $this->deliveryFee
         ]);
     }
 
@@ -50,7 +52,8 @@ class PurchaseList extends Component
             $delete = DB::table('product_purchase')->where('id', '=', $id)->delete();
 
             if ($delete) {
-                Product::findOrfail($product->product_id)->decrement('quantity', $product->quantity);
+                // Product::findOrfail($product->product_id)->decrement('quantity', $product->quantity);
+                // table droped
                 session()->flash('message', 'Product Deleted');
             }
         }

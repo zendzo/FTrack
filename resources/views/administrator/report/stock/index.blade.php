@@ -97,7 +97,7 @@
     <div class="media widget-media p-4 rounded bg-white border">
       <i class="mdi mdi-currency-usd text-warning mr-4"></i>
       <div class="media-body align-self-center">
-        <h4 class="text-primary mb-2">{{ array_sum($purchaseProducts) }}</h4>
+        <h4 class="text-primary mb-2">{{ number_format(array_sum($purchaseProducts),2,',','.') }}</h4>
         <p>(Pemasukan) Jasa Kurir</p>
       </div>
     </div>
@@ -106,7 +106,7 @@
     <div class="media widget-media p-4 rounded bg-white border">
       <i class="mdi mdi-currency-usd text-danger mr-4"></i>
       <div class="media-body align-self-center">
-        <h4 class="text-primary mb-2">{{ array_sum($saleProducts) }}</h4>
+        <h4 class="text-primary mb-2">{{ number_format(array_sum($saleProducts),2,',','.') }}</h4>
         <p>(Pengeluaran) Oprasional</p>
       </div>
     </div>
@@ -173,8 +173,8 @@
                   <label for="">Jenis</label>
                   <select class="form-control @error('type') is-invalid @enderror" name="type">
                     <option value="">Select</option>
-                    <option value="1">Sale</option>
-                    <option value="2">Purchase</option>
+                    <option value="1">Pengeluaran</option>
+                    <option value="2">Pemasukan</option>
                   </select>
                 </div>
               </div>
@@ -199,10 +199,10 @@
                 <th scope="col">Kode</th>
                 <th scope="col">Tgl. Penjualan</th>
                 <th scope="col">Tgl. Pengiriman</th>
-                <th scope="col">Keterangan</th>
-                <th>Quantity</th>
+                <th scope="col">Quantity</th>
+                <th>Harga</th>
                 {{-- <th scope="col">Stok Gudang</th> --}}
-                <th>Total</th>
+                <th>Jasa</th>
               </tr>
             </thead>
             <tbody>
@@ -223,10 +223,10 @@
                   </td>
                   <td>{{ $product->purchase[0]->purchase_date }}</td>
                   <td>{{ $product->purchase[0]->sent_date }}</td>
-                  <td>{{ $product->purchase[0]->description }}</td>
                   <td>{{ $product->pivot->quantity }}</td>
-                  {{-- <td>{{ $product->quantity }}</td> --}}
                   <td>{{ $product->pivot->grand_total }}</td>
+                  {{-- <td>{{ $product->quantity }}</td> --}}
+                  <td>{{ $product->pivot->delivery_fee }}</td>
                 </tr>
                 @endforeach
               @empty

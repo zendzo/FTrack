@@ -47,7 +47,8 @@
             'admin.sales-type',
             'admin.purchase-type',
             'admin.supplier',
-            'admin.customer'
+            'admin.customer',
+            'admin.setting'
             ], 'show') }}" id="app" data-parent="#sidebar-menu">
             <div class="sub-menu">
     
@@ -97,6 +98,12 @@
                 <a class="sidenav-item-link" href="{{ route('admin.customer') }}">
                   <i class="mdi mdi-account-circle" style="margin-right: 5px;"></i>
                   <span class="nav-text">Pelanggan</span>
+                </a>
+              </li>
+              <li class="{{active(['admin.setting'], 'active')}}">
+                <a class="sidenav-item-link" href="{{ route('admin.setting') }}">
+                  <i class="mdi mdi-brightness-percent" style="margin-right: 5px;"></i>
+                  <span class="nav-text">Margin Jasa</span>
                 </a>
               </li>
     

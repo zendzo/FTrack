@@ -116,7 +116,7 @@ class ReportController extends Controller
         $purchaseProducts = [];
         foreach ($purchases as $key => $purchase) {
             foreach ($purchase->products as $key => $product) {
-                array_push($purchaseProducts, $product->pivot->grand_total);
+                array_push($purchaseProducts, $product->pivot->delivery_fee);
             }
         }
 
@@ -150,7 +150,7 @@ class ReportController extends Controller
         $purchaseProducts = [];
         foreach ($purchases as $key => $purchase) {
             foreach ($purchase->products as $key => $product) {
-                array_push($purchaseProducts, $product->pivot->grand_total);
+                array_push($purchaseProducts, $product->pivot->delivery_fee);
             }
         }
 

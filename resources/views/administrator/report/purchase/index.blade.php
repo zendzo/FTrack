@@ -197,6 +197,7 @@
                 <td>
                   <ul>
                     @php $grand_total = 0; @endphp
+                    @php $delivery_fee = 0; @endphp
                     @foreach($sale->products as $product)
                     <li>
                       {{$product->name}} <b>@</b> ({{ $product->pivot->quantity }}
@@ -205,11 +206,12 @@
                     </li>
                     @php
                     $grand_total = $grand_total + $product->pivot->grand_total;
+                    $delivery_fee = $delivery_fee + $product->pivot->delivery_fee;
                     @endphp
                     @endforeach
                   </ul>
-                  <b>Grand Total + PPN 10% : Rp.
-                    {{ number_format($grand_total+($grand_total*0.1),2,',','.') }}
+                  <b>Grand Total + Jasa % : Rp.
+                    {{ number_format($grand_total+ $delivery_fee,2,',','.') }}
                   </b>
                 </td>
               </tr>

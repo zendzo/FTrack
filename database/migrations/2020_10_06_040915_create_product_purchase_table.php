@@ -19,6 +19,7 @@ class CreateProductPurchaseTable extends Migration
             $table->unsignedBigInteger('product_id');
             $table->integer('quantity');
             $table->integer('grand_total');
+            $table->integer('delivery_fee');
             $table->timestamps();
         });
 

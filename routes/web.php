@@ -13,6 +13,7 @@ use App\Http\Controllers\CustomerController;
 use App\Http\Controllers\SalesController;
 use App\Http\Controllers\PurchaseController;
 use App\Http\Controllers\Secertary\SecertaryDashboardController;
+use App\Http\Controllers\SettingController;
 use App\Http\Controllers\UserDashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,6 +100,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
     Route::get('/laporan/laba', [ReportController::class, 'stock'])->name('report.stock');
 
     Route::post('laporan/laba', [ReportController::class, 'getStockbyDate'])->name('report.stock.by-date');
+
+    Route::get('/pengaturan', [SettingController::class, 'index'])->name('setting');
 });
 
 // Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
