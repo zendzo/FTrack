@@ -137,8 +137,21 @@ class ReportController extends Controller
         $start_date = $request->start_date;
         $end_date = $request->end_date;
         
-        $purchases = Purchase::has('products')->with('products')->get();
-        $sales = Sale::has('products')->with('products')->get();
+        $purchases = Purchase::has('products')->whereBetween(
+            DB::raw("DATE(purchase_date)"),
+            [
+                Carbon::createFromFormat('Y-m-d', $request->start_date ?: Date('Y-m-d'))->toDateString(),
+                Carbon::createFromFormat('Y-m-d', $request->end_date ?: Date('Y-m-d'))->toDateString()
+            ]
+        )->with('products')->get();
+        
+        $sales = Sale::has('products')->whereBetween(
+            DB::raw("DATE(sale_date)"),
+            [
+                Carbon::createFromFormat('Y-m-d', $request->start_date ?: Date('Y-m-d'))->toDateString(),
+                Carbon::createFromFormat('Y-m-d', $request->end_date ?: Date('Y-m-d'))->toDateString()
+            ]
+        )->with('products')->get();
 
         $saleProducts = [];
         foreach ($sales as $key => $sale) {
@@ -154,19 +167,26 @@ class ReportController extends Controller
             }
         }
 
-        if ($request->type === '1') {
-            $model = new Sale();
-            $type_date = 'sale_date';
-        }
+            $sale_result = new Sale();
+            $sale_date = 'sale_date';
 
-        if ($type === '2') {
-            $model = new Purchase();
-            $type_date = 'purchase_date';
-        }
+            $purchase_result = new Purchase();
+            $purchase_date = 'purchase_date';
 
-        $results = $model->has('products')
+        $sales = $sale_result->has('products')
         ->whereBetween(
-            DB::raw("DATE($type_date)"),
+            DB::raw("DATE($sale_date)"),
+            [
+                Carbon::createFromFormat('Y-m-d', $request->start_date ?: Date('Y-m-d'))->toDateString(),
+                Carbon::createFromFormat('Y-m-d', $request->end_date ?: Date('Y-m-d'))->toDateString()
+            ]
+        )
+        ->with('products')
+        ->get();
+
+        $purchases = $purchase_result->has('products')
+        ->whereBetween(
+            DB::raw("DATE($purchase_date)"),
             [
                 Carbon::createFromFormat('Y-m-d', $request->start_date ?: Date('Y-m-d'))->toDateString(),
                 Carbon::createFromFormat('Y-m-d', $request->end_date ?: Date('Y-m-d'))->toDateString()
@@ -180,7 +200,8 @@ class ReportController extends Controller
             'purchaseProducts',
             'start_date',
             'end_date',
-            'results',
+            'sales',
+            'purchases',
             'type'
         ]));
     }

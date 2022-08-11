@@ -133,81 +133,84 @@
           @endif
 
           @if (Auth::user()->role_id === 1)
-              <form action="{{ route('admin.report.stock.by-date') }}" method="POST">
-          @else
-              <form action="{{ route('secertary.report.stock.by-date') }}" method="POST">
-          @endif
-            @csrf
-            @method('POST')
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="name">Tanggal Awal</label>
-                  <input type="text" class="form-control dateRange 
+          <form action="{{ route('admin.report.stock.by-date') }}" method="POST">
+            @else
+            <form action="{{ route('secertary.report.stock.by-date') }}" method="POST">
+              @endif
+              @csrf
+              @method('POST')
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="name">Tanggal Awal</label>
+                    <input type="text" class="form-control dateRange 
                                 @error('start_date') is-invalid @enderror" name="start_date" value="{{ $start_date }}"
-                    autocomplete="off" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd"
-                    data-date-today-highlight="true" onchange="this.dispatchEvent(new InputEvent('input'))" />
-                  @error('start_date')
-                  <div class="invalid-feedback">
-                    {{ $message }}
+                      autocomplete="off" data-provide="datepicker" data-date-autoclose="true"
+                      data-date-format="yyyy-mm-dd" data-date-today-highlight="true"
+                      onchange="this.dispatchEvent(new InputEvent('input'))" />
+                    @error('start_date')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
-                  @enderror
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="name">Tanggal Akhir</label>
-                  <input type="text" class="form-control dateRange 
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="name">Tanggal Akhir</label>
+                    <input type="text" class="form-control dateRange 
                                 @error('end_date') is-invalid @enderror" name="end_date" value="{{ $end_date }}"
-                    autocomplete="off" data-provide="datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd"
-                    data-date-today-highlight="true" onchange="this.dispatchEvent(new InputEvent('input'))" />
-                  @error('end_date')
-                  <div class="invalid-feedback">
-                    {{ $message }}
+                      autocomplete="off" data-provide="datepicker" data-date-autoclose="true"
+                      data-date-format="yyyy-mm-dd" data-date-today-highlight="true"
+                      onchange="this.dispatchEvent(new InputEvent('input'))" />
+                    @error('end_date')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
                   </div>
-                  @enderror
                 </div>
-              </div>
-              <div class="col-sm-6">
-                <div class="form-group">
-                  <label for="">Jenis</label>
-                  <select class="form-control @error('type') is-invalid @enderror" name="type">
-                    <option value="">Select</option>
-                    <option value="1">Pengeluaran</option>
-                    <option value="2">Pemasukan</option>
-                  </select>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="">Jenis</label>
+                    <select class="form-control @error('type') is-invalid @enderror" name="type">
+                      <option value="">Select</option>
+                      <option value="1">Pengeluaran</option>
+                      <option value="2">Pemasukan</option>
+                    </select>
+                  </div>
                 </div>
-              </div>
-          
-            </div>
-            <div class="form-footer pt-5 border-top">
-              <button class="btn btn-primary btn-default">
-                <div>
-                  <i class="mdi mdi-feature-search-outline"></i> Cari
-                </div>
-              </button>
-            </div>
-          </form>
 
-          <hr>
-          <table class="table table-hover " id="basic-data-table">
-            <thead>
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nama Barang</th>
-                <th scope="col">Tipe</th>
-                <th scope="col">Kode</th>
-                <th scope="col">Tgl. Penjualan</th>
-                <th scope="col">Tgl. Pengiriman</th>
-                <th scope="col">Quantity</th>
-                <th>Harga</th>
-                {{-- <th scope="col">Stok Gudang</th> --}}
-                <th>Jasa</th>
-              </tr>
-            </thead>
-            <tbody>
-              @if ($type === '2')
-              @forelse ($results as $result)
+              </div>
+              <div class="form-footer pt-5 border-top">
+                <button class="btn btn-primary btn-default">
+                  <div>
+                    <i class="mdi mdi-feature-search-outline"></i> Cari
+                  </div>
+                </button>
+              </div>
+            </form>
+
+            <hr>
+            {{-- Pemasukan --}}
+            <h5>Pemasukan</h5>
+            <table class="table table-hover " id="basic-data-table">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Nama Barang</th>
+                  <th scope="col">Tipe</th>
+                  <th scope="col">Kode</th>
+                  <th scope="col">Tgl. Penjualan</th>
+                  <th scope="col">Tgl. Pengiriman</th>
+                  <th scope="col">Quantity</th>
+                  <th>Harga</th>
+                  {{-- <th scope="col">Stok Gudang</th> --}}
+                  <th>Jasa</th>
+                </tr>
+              </thead>
+              <tbody>
+                @forelse ($purchases as $result)
                 @foreach ($result->products as $product)
                 <tr>
                   <td>{{ $product->id }}</td>
@@ -229,40 +232,60 @@
                   <td>{{ $product->pivot->delivery_fee }}</td>
                 </tr>
                 @endforeach
-              @empty
-              <tr>
-                <td colspan="9">No Data Available</td>
-              </tr>
-              @endforelse
-              @elseif($type === '1')
-              @forelse ($results as $result)
-                @foreach ($result->products as $product)
+                @empty
                 <tr>
-                  <td>{{ $product->id }}</td>
-                  <td>{{ $product->name }}</td>
-                  <td>
-                    {{ $product->sales[0]->type->name }}
-                  </td>
-                  <td>
-                    <a href="{{ route('admin.sales.show', $product->sales[0]->id) }}" target="_blank"
-                      rel="noopener noreferrer">
-                      {{ $product->sales[0]->code }}
-                    </a>
-                  </td>
-                  <td>{{ $product->sales[0]->sale_date }}</td>
-                  <td>{{ $product->sales[0]->sent_date }}</td>
-                  <td>{{ $product->sales[0]->description }}</td>
-                  <td>{{ $product->pivot->quantity }}</td>
-                  <td>{{ $product->quantity }}</td>
-                  <td>{{ $product->pivot->grand_total }}</td>
+                  <td colspan="9">No Data Available</td>
                 </tr>
-                @endforeach
+                @endforelse
+              </tbody>
+            </table>
+        </div>
+        <div class="card-body">
+          <h5>Pengeluaran</h5>
+          <hr>
+          {{-- Pengeluaran --}}
+          <table class="table table-hover " id="basic-data-table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nama Barang</th>
+                <th scope="col">Tipe</th>
+                <th scope="col">Kode</th>
+                <th scope="col">Tgl. Penjualan</th>
+                <th scope="col">Tgl. Pengiriman</th>
+                <th scope="col">Deskripsi</th>
+                <th>Quantity</th>
+                {{-- <th scope="col">Stok Gudang</th> --}}
+                <th>Harga</th>
+              </tr>
+            </thead>
+            <tbody>
+              @forelse ($sales as $result)
+              @foreach ($result->products as $product)
+              <tr>
+                <td>{{ $product->id }}</td>
+                <td>{{ $product->name }}</td>
+                <td>
+                  {{ $product->sales[0]->type->name }}
+                </td>
+                <td>
+                  <a href="{{ route('admin.sales.show', $product->sales[0]->id) }}" target="_blank"
+                    rel="noopener noreferrer">
+                    {{ $product->sales[0]->code }}
+                  </a>
+                </td>
+                <td>{{ $product->sales[0]->sale_date }}</td>
+                <td>{{ $product->sales[0]->sent_date }}</td>
+                <td>{{ $product->sales[0]->description }}</td>
+                <td>{{ $product->pivot->quantity }}</td>
+                <td>{{ $product->pivot->grand_total }}</td>
+              </tr>
+              @endforeach
               @empty
               <tr>
                 <td colspan="9">No Data Available</td>
               </tr>
               @endforelse
-              @endif
             </tbody>
           </table>
         </div>
