@@ -17,7 +17,8 @@ class CategoryTableSeeder extends Seeder
         $categories = [
             'Makanan',
             'Minuman',
-            'Makanan Ringan'
+            'Makanan Ringan',
+            'Alat Tulis Kantor'
         ];
 
         foreach ($categories as $key => $category) {
