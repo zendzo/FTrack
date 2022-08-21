@@ -210,7 +210,7 @@
                 </tr>
               </thead>
               <tbody>
-                @forelse ($purchases as $result)
+                @forelse ($purchaseProducts as $result)
                 @foreach ($result->products as $product)
                 <tr>
                   <td>{{ $product->id }}</td>
@@ -260,7 +260,7 @@
               </tr>
             </thead>
             <tbody>
-              @forelse ($sales as $result)
+              @forelse ($saleProducts as $result)
               @foreach ($result->products as $product)
               <tr>
                 <td>{{ $product->id }}</td>
