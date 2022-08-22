@@ -85,6 +85,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'admin'], f
 
     Route::get('/pemasukan/invoice/{id}', [PurchaseController::class, 'invoice'])->name('purchase.invoice');
 
+    Route::get('/pemasukan/invoice/payment/{id}', [PurchaseController::class, 'payment'])->name('purchase.payment');
+
     Route::get('/user', [UserController::class, 'index'])->name('user');
 
     Route::get('/role', [RoleController::class, 'index'])->name('role');
