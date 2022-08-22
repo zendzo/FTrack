@@ -11,23 +11,24 @@ class SettingIndex extends Component
         'settingStored' => 'handleSettingStored',
         'settingUpdated' => 'handleSettingUpdated'
     ];
-
     public $editSetting = false;
 
     public function render()
     {
-        return view('livewire.setting-index');
+        return view('livewire.setting-index',[
+            'settings' => Setting::latest()->paginate(5)
+        ]);
     }
 
 
     public function handleSettingStored($setting)
     {
-        session()->flash('message', 'Setting '.$setting['margin'].'  Successfully Created');
+        session()->flash('message', 'Setting Successfully Created');
     }
 
     public function handleSettingUpdated($setting)
     {
-        session()->flash('message', 'Setting '.$setting['margin'].'  Successfully Updated');
+        session()->flash('message', 'Setting Successfully Updated');
 
         $this->editSetting = false;
     }
@@ -39,5 +40,20 @@ class SettingIndex extends Component
         $setting = Setting::findOrfail($id);
 
         $this->emit('getSetting', $setting);
+    }
+
+    public function destroy($id)
+    {
+        $setting = Setting::findOrfail($id);
+
+        if ($setting) {
+            $setting->delete();
+        }
+
+        session()->flash('message', 'Setting Deleted');
+
+        if ($this->editSetting) {
+            $this->editSetting = false;
+        }
     }
 }

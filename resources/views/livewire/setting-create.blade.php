@@ -1,12 +1,12 @@
 <div>
-    <form class="horizontal-form" wire:submit.prevent="addUnit">
+    <form class="horizontal-form" wire:submit.prevent="addSetting">
         <div class="form-group row">
             <div class="col-12 col-md-3 text-right">
-                <label for="name">Margin Jasa</label>
+                <label for="margin">Persentase</label>
             </div>
             <div class="col-12 col-md-9">
-                <input type="text" id="name" class="form-control @error('name') is-invalid @enderror" wire:model.lazy="margin" placeholder="Nama Satuan">
-                @error('name')
+                <input type="text" id="margin" class="form-control @error('margin') is-invalid @enderror" wire:model.lazy="margin" placeholder="Besar Margin %">
+                @error('margin')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>

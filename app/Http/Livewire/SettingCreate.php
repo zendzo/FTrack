@@ -7,7 +7,8 @@ use App\Models\Setting;
 
 class SettingCreate extends Component
 {
-    public $name;
+    public $margin;
+    public $symbol;
 
     public function render()
     {
@@ -21,7 +22,7 @@ class SettingCreate extends Component
         ]);
         
         $setting = Setting::create([
-            'magrin' => $this->magrin,
+            'margin' => $this->margin,
         ]);
 
         $this->resetInput();
@@ -31,6 +32,6 @@ class SettingCreate extends Component
 
     public function resetInput()
     {
-        $this->magrin = null;
+        $this->margin = null;
     }
 }

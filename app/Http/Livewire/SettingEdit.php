@@ -8,18 +8,14 @@ use Livewire\Component;
 class SettingEdit extends Component
 {
     public $margin;
-    public $settingId = 1;
+    public $settingId;
 
     protected $listeners = [
         'getSetting' => 'showSetting'
     ];
     public function render()
     {
-        $setting = Setting::findOrfail(1);
-
-        return view('livewire.setting-edit',[
-            $setting
-        ]);
+        return view('livewire.setting-edit');
     }
 
     public function showSetting($setting)
