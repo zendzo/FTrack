@@ -23,8 +23,34 @@ class PurchaseController extends Controller
     public function invoice($id)
     {
         $purchase = Purchase::find($id);
-        return view('administrator.purchase.invoice', [
-            'purchase' => $purchase
-        ]);
+        
+        if ($purchase->products->count() < 1 ) {
+            return redirect()->back()->with([
+                'message' => 'Item Tidak Boleh Kosong',
+                'status' => 'danger'
+            ]);
+        }
+        
+        $purchase->completed = true;
+        $update = $purchase->save();
+
+        if ($update) {
+            return view('administrator.purchase.invoice', [
+                'purchase' => $purchase
+            ]);
+        }
+    }
+
+    public function payment($id)
+    {
+        $purchase = Purchase::find($id);
+        $purchase->confirmed_by_admin = true;
+        $update = $purchase->save();
+
+        if ($update) {
+            return view('administrator.purchase.invoice', [
+                'purchase' => $purchase
+            ]);
+        }
     }
 }
