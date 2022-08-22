@@ -123,10 +123,11 @@ class ReportController extends Controller
         return view('administrator.report.stock.index', compact([
             'saleProducts',
             'purchaseProducts',
+            'sales',
+            'purchases',
             'start_date',
             'end_date',
-            'type',
-            'results'
+            'type'
         ]));
     }
 
@@ -198,10 +199,10 @@ class ReportController extends Controller
         return view('administrator.report.stock.index', compact([
             'saleProducts',
             'purchaseProducts',
-            'start_date',
-            'end_date',
             'sales',
             'purchases',
+            'start_date',
+            'end_date',
             'type'
         ]));
     }
