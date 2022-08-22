@@ -28,7 +28,7 @@ class PurchaseEntry extends Component
 
     public function mount()
     {
-        $this->setting = Setting::findOrfail(1);
+        $this->setting = Setting::OrderBy('id','desc')->first();
     }
 
     public function updatedProductId()
