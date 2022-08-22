@@ -26,7 +26,13 @@
 @section('content')
 <div id="invoice-print" class="invoice-wrapper rounded border bg-white py-5 px-3 px-md-4 px-lg-5">
   <div class="d-flex justify-content-between">
-    <h2 class="text-dark font-weight-medium">Invoice Pemesanan #{{$purchase->id}}</h2>
+    <h2 class="text-dark font-weight-medium">
+    <img class="brand-icon" width="40" height="40" src="{{ asset('/images/ftrack-hr.png') }}">
+    {{ env('APP_NAME') }}
+    </h2>
+    <h4 class="text-dark font-weight-medium">
+      Invoice Pemesanan #{{ $purchase->id }}
+    </h4>
     <div class="btn-group dontprint">
       <button onclick="printPageArea('invoice-print')" class="btn btn-sm btn-secondary">
         <i class="mdi mdi-printer"></i> Print</button>
@@ -42,10 +48,13 @@
       </address>
     </div>
     <div class="col-xl-3 col-lg-4">
-      <p class="text-dark mb-2">Details</p>
+      <p class="text-dark mb-2"><b>Pelanggan</b></p>
       <address>
         Invoice ID:
         <span class="text-dark">#{{$purchase->id}}</span>
+        <br>{{ $purchase->customer->name }}
+        <br> {{ $purchase->customer->address }}
+        <br> Phone: {{ $purchase->customer->phone }}
         <br> {{ $purchase->created_at->format('D, d-M-Y')}}
       </address>
     </div>
@@ -55,26 +64,31 @@
       <tr>
         <th>#</th>
         <th>Item</th>
-        <th>Quantity</th>
+        <th>Qty</th>
         <th>Unit</th>
-        <th>Unit Cost</th>
+        <th>Harga</th>
+        <th>Jasa</th>
         <th>Total</th>
       </tr>
     </thead>
     <tbody>
       @php
-      $grand_total = [];
+        $grand_total = [];
+        $delivery_fee = [];
       @endphp
+
       @foreach ($purchase->products as $key => $product)
-      @php
-      array_push($grand_total, $product->pivot->grand_total)
-      @endphp
+        @php
+          array_push($grand_total, $product->pivot->grand_total);
+          array_push($delivery_fee, $product->pivot->delivery_fee);
+        @endphp
       <tr>
         <td>{{$key += 1}}</td>
         <td>{{$product->name}}</td>
         <td>{{$product->pivot->quantity ?? ''}}</td>
         <td>{{$product->unit->symbol}}</td>
         <td>{{$product->price}}</td>
+        <td>{{$product->pivot->delivery_fee ?? ''}}</td>
         <td>{{$product->pivot->grand_total ?? ''}}</td>
       </tr>
       @endforeach
@@ -89,11 +103,14 @@
         {{-- <li class="mid pb-3 text-dark">Vat(10%)
               <span class="d-inline-block float-right text-default">$789,70</span>
             </li> --}}
-        <li class="pb-3 text-dark">Grand Total
-          <span class="d-inline-block float-right">{{ array_sum($grand_total) }}</span>
+        <li class="pb-3 text-dark"><p class="text-dark mb-2"><b>Grand Total {{ number_format((int) array_sum($grand_total) + (int) array_sum($delivery_fee),2,',','.') }}</b></p>
         </li>
       </ul>
-      <a href="#" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Procced to Payment</a>
+      @if(!$purchase->confirmed_by_admin)
+        <a href="{{ route('admin.purchase.payment', $purchase->id) }}" class="btn btn-block mt-2 btn-lg btn-primary btn-pill"> Proses Pembayaran</a>
+      @else
+        <a href="#" class="btn btn-block mt-2 btn-lg btn-grey btn-pill"> Telah Dibayar</a>
+      @endif
     </div>
   </div>
 </div>

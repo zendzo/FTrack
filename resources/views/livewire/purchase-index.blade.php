@@ -6,15 +6,6 @@
                     <h2>Form Data Pemasukan</h2>
                 </div>
                 <div class="card-body">
-                    @if (session()->has('message'))
-                    <div class="alert alert-dismissible fade show alert-{{strpos(session('message'), 'Deleted') ? 'danger':'success'}}" role="alert">
-                        {{ session('message') }}
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    @endif
-
                     @if ($editPurchases)
                     <livewire:purchase-edit></livewire:purchase-edit>
                     @else
@@ -49,17 +40,30 @@
                                 <td>{{$purchase->address}}</td>
                                 <td>(Total Formula)</td>
                                 <td>
-                                    <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>
-                                    {{-- <button wire:click="destroy({{$purchase->id}})" class="btn btn-sm btn-danger text-white">Delete</button> --}}
-                                    <a href="{{ route(request()->segment(1).'.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
-                                        <i class=" mdi mdi-checkbox-marked-outline mr-1"></i> Process
-                                    </a>
-                                    @if ($purchase->products->count() > 0 && auth()->user()->role_id == 1)
-                                        <a href="{{ route(request()->segment(1).'.purchase.invoice', $purchase->id) }}" wire:click="showPurchases" type="button"
+                                    @if(!$purchase->completed)
+                                        <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>
+                                        @if(auth()->user()->role->id == 1 )
+                                        <a href="{{ route('admin.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
+                                            <i class=" mdi mdi-checkbox-marked-outline mr-1"></i> Process
+                                        </a>
+                                        @else
+                                        <a href="{{ route('front-office.purchases.show', $purchase->id) }}" wire:click="getPurchases({{ $purchase->id }})" type="a" class="mb-1 btn btn-sm btn-success">
+                                            <i class=" mdi mdi-checkbox-marked-outline mr-1"></i> Process
+                                        </a>
+                                        @endif
+                                    @endif
+                                    @if ($purchase->products->count() > 0 && auth()->user()->role->id == 1)
+                                        <a href="{{ route('admin.purchase.invoice', $purchase->id) }}" wire:click="showPurchases" type="button"
                                             class="mb-1 btn btn-sm btn-warning">
                                             <i class=" mdi mdi-file-document"></i> Invoice
                                         </a>
                                     @endif
+
+                                    @if ($purchase->completed && auth()->user()->role->id >= 2)
+                                            <a class="mb-1 btn btn-sm btn-warning">
+                                                <i class=" mdi mdi-file-document"></i> Selesai
+                                            </a>
+                                        @endif
                                 </td>
                             </tr>
                             @endforeach

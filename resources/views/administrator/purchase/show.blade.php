@@ -70,7 +70,7 @@
               <livewire:purchase-entry :purchaseId="$purchase->id"></livewire:purchase-entry>
             @if (Auth::user()->role_id === 1)
                 <a href="{{ route('admin.purchase.invoice', $purchase->id) }}" class="btn btn-lg btn-warning">
-                    <i class=" mdi mdi-file-document"></i> Invoice
+                    <i class=" mdi mdi-file-document"></i> Selesai
                 </a>
             @endif
       {{-- </form> --}}
