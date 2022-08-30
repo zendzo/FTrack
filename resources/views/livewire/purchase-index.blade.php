@@ -29,6 +29,9 @@
                         </thead>
                         <tbody>
                             @foreach ($purchases as $purchase)
+                            @php
+                                $grand_total = [];
+                            @endphp
                             <tr>
                                 <td scope="row">{{$purchase->id}}</td>
                                 <td>{{$purchase->supplier->name}}</td>
@@ -38,7 +41,14 @@
                                 <td>{{$purchase->sent_date}}</td>
                                 <td>{{$purchase->customer->name}}</td>
                                 <td>{{$purchase->address}}</td>
-                                <td>(Total Formula)</td>
+                                <td>
+                                    @foreach ($purchase->products as $product)
+                                        @php
+                                        array_push($grand_total,$product->pivot->grand_total);
+                                        @endphp
+                                    @endforeach
+                                    {{ number_format(array_sum($grand_total),2,',','.') }}
+                                </td>
                                 <td>
                                     @if(!$purchase->completed)
                                         <button wire:click="getPurchases({{$purchase->id}})" class="btn btn-sm btn-info text-white">Edit</button>

@@ -46,7 +46,7 @@
             </tr>
             <tr>
                 <td colspan="4"><h4 class="pull-right">Grand Total</h4></td>
-                <td colspan="1"><h4>{{ (int) array_sum($grand_total) + (int) array_sum($delivery_fee) }}</h4></td>
+                <td colspan="1"><h4>{{ number_format((int) array_sum($grand_total) + (int) array_sum($delivery_fee),2,',','.') }}</h4></td>
             </tr>
         </tfoot>
     </table>

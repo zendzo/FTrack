@@ -40,7 +40,7 @@ class CustomerTableSeeder extends Seeder
 
         foreach ($address as $key => $add) {
             Customer::create([
-                'name' => $faker->name,
+                'name' => $faker->fullName,
                 'address' => $add['kel'],
                 'phone' => $faker->phoneNumber,
                 'status' => true,

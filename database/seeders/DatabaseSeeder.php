@@ -32,8 +32,8 @@ class DatabaseSeeder extends Seeder
         $this->call(PurchaseTypeSeeder::class);
         $this->call(SalesTypeSeeder::class);
         $this->call(ProductTableSeeder::class);
+        $this->call(PurchasesTableSeeder::class);
         Sale::factory()->saleDate(date('Y-m-d'))->count(10)->create();
-        Purchase::factory()->purchaseDate(date('Y-m-d'))->count(10)->create();
         $this->call(SettingMarginSeeder::class);
     }
 }
