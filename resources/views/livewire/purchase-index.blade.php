@@ -36,7 +36,7 @@
                                 <td>{{$purchase->code}}</td>
                                 <td>{{$purchase->purchase_date}}</td>
                                 <td>{{$purchase->sent_date}}</td>
-                                <td>{{$purchase->recipient}}</td>
+                                <td>{{$purchase->customer->name}}</td>
                                 <td>{{$purchase->address}}</td>
                                 <td>(Total Formula)</td>
                                 <td>

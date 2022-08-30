@@ -24,16 +24,18 @@ class PurchaseFactory extends Factory
     public function definition()
     {
         return [
-            'supplier_id' => rand(1,2),
+            'supplier_id' => rand(1,15),
             'code' => Str::random(10),
             'purchase_type_id' => rand(1,2),
             'purchase_date' => Carbon::now(),
             'sent_date' => Carbon::now()->addDay(),
-            'address' => $this->faker->address,
-            'recipient' => rand(1,20),
+            'recipient' => factory(App\User::class),
             'paid_amount' => null,
             'completed' => false,
             'confirmed_by_admin' => false,
+            'address' => function(array $address){
+                return App\Customer::find($address['recipient'])->address;
+            },
         ];
     }
 

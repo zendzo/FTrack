@@ -16,7 +16,7 @@ class CustomerIndex extends Component
     public function render()
     {
         return view('livewire.customer-index', [
-            'categories' => Customer::latest()->paginate(5)
+            'categories' => Customer::latest()->paginate(20)
         ]);
     }
 
