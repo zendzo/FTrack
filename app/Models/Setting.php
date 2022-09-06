@@ -15,7 +15,7 @@ class Setting extends Model
         return $this->belongsTo(User::class,'user_id');
     }
 
-    public function purchase()
+    public function purchases()
     {
         return $this->hasMany(Purchase::class);
     }

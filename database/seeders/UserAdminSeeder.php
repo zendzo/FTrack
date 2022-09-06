@@ -18,11 +18,11 @@ class UserAdminSeeder extends Seeder
     {
         $users = [
             [
-                'name' => 'Accounting',
-                'email' => 'accounting@foodtrack.com',
+                'name' => 'Bagian Keuangan',
+                'email' => 'bendahara@foodtrack.com',
             ],
             [
-                'name' => 'Front Office',
+                'name' => 'Resepsionis',
                 'email' => 'fo@foodtrack.com',
             ]
         ];
