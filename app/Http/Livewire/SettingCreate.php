@@ -23,6 +23,7 @@ class SettingCreate extends Component
         
         $setting = Setting::create([
             'margin' => $this->margin,
+            'user_id' => auth()->user()->id
         ]);
 
         $this->resetInput();

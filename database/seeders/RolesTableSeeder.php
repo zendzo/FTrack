@@ -24,5 +24,7 @@ class RolesTableSeeder extends Seeder
                 'name' => $role
             ]);
         }
+
+        $this->command->info("Role Data Created");
     }
 }

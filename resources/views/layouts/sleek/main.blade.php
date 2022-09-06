@@ -18,6 +18,7 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ asset('admin/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
+  <link href="{{ asset('admin/assets/plugins/datetimepicker/jquery.datetimepicker.min.css') }}" rel="stylesheet" />
 
 
 
@@ -111,52 +112,6 @@
 
           <div class="navbar-right ">
             <ul class="nav navbar-nav">
-              <li class="dropdown notifications-menu">
-                <button class="dropdown-toggle" data-toggle="dropdown">
-                  <i class="mdi mdi-bell-outline"></i>
-                </button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">You have 5 notifications</li>
-                  <li>
-                    <a href="#">
-                      <i class="mdi mdi-account-plus"></i> New user registered
-                      <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10
-                        AM</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="mdi mdi-account-remove"></i> User deleted
-                      <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 07
-                        AM</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="mdi mdi-chart-areaspline"></i> Sales report is ready
-                      <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 12
-                        PM</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="mdi mdi-account-supervisor"></i> New client
-                      <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 10
-                        AM</span>
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#">
-                      <i class="mdi mdi-server-network-off"></i> Server overloaded
-                      <span class=" font-size-12 d-inline-block float-right"><i class="mdi mdi-clock-outline"></i> 05
-                        AM</span>
-                    </a>
-                  </li>
-                  <li class="dropdown-footer">
-                    <a class="text-center" href="#"> View All </a>
-                  </li>
-                </ul>
-              </li>
               <li class="right-sidebar-in right-sidebar-2-menu">
                 <i class="mdi mdi-settings mdi-spin"></i>
               </li>
@@ -294,11 +249,12 @@
   <script src="{{ asset('admin/assets/plugins/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/slimscrollbar/jquery.slimscroll.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/jekyll-search.min.js') }}"></script>
+  <script src="{{ asset('admin/assets/plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
 
 
 
-  <script src="{{ asset('admin/assets/js/sleek.bundle.js') }}"></script>
   @yield('scripts')
+  <script src="{{ asset('admin/assets/js/sleek.bundle.js') }}"></script>
   <livewire:scripts></livewire:scripts>
 </body>
 

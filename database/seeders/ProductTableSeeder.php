@@ -441,5 +441,7 @@ class ProductTableSeeder extends Seeder
                 'status' => true
             ]);
         }
+
+        $this->command->info("Product Data Created");
     }
 }

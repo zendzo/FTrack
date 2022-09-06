@@ -15,7 +15,7 @@ class SettingMarginSeeder extends Seeder
     public function run()
     {
         Setting::create([
-            'margin' => 0.2,
+            'margin' => 20,
             'user_id' => 1
         ]);
 

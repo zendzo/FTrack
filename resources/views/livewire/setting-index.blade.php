@@ -26,19 +26,29 @@
                             <tr>
                                 <th scope="col">#</th>
                                 <th scope="col">Peresentase</th>
+                                <th scope="col">Author</th>
                                 <th scope="col">Tgl. Posting</th>
+                                <th scope="col">Tgl. Update</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($settings as $setting)
                             <tr>
                                 <td scope="row">{{$setting->id}}</td>
-                                <td>{{$setting->margin}}</td>
-                                <td>{{$setting->created_at}}</td>
+                                <td>{{$setting->margin}} %</td>
+                                <td>{{$setting->author->name}} </td>
+                                <td>{{$setting->created_at->format('D d/m/y H:m')}}</td>
+                                <td>
+                                    @if ($setting->created_at == $setting->updated_at)
+                                        Belum Update
+                                    @else
+                                        {{$setting->updated_at->format('D d/m/y H:m')}}
+                                    @endif
+                                </td>
                                 <td>
                                     @if($loop->last)
                                     <button wire:click="getSetting({{$setting->id}})" class="btn btn-sm btn-info text-white">Edit</button>
-                                    <button class="btn btn-sm btn-success text-white">Saat ini</button>
+                                    <span>(saat ini)</span>
                                     @endif
                                     @if(!$loop->last)
                                     <button class="btn btn-sm btn-danger text-white">Terpakai</button>

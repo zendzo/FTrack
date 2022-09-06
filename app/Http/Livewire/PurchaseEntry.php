@@ -43,7 +43,7 @@ class PurchaseEntry extends Component
     public function updatedQuantity()
     {
         $this->grand_total = (int) $this->quantity * $this->price;
-        $this->delivery_fee = (int) $this->grand_total * $this->setting->margin;
+        $this->delivery_fee = (int) $this->grand_total * ($this->setting->margin / 100);
     }
 
     public function addEntry()

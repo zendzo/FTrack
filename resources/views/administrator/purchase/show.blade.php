@@ -65,6 +65,18 @@
                     <input disabled type="text" class="form-control" value="{{ $purchase->address }}">
                 </div>
             </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lname">Margin Jasa</label>
+                    <input disabled type="text" class="form-control" value="{{ $purchase->margin->margin }} %">
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label for="lname">Margin Author</label>
+                    <input disabled type="text" class="form-control" value="{{ $purchase->margin->author->name }}">
+                </div>
+            </div>
           </div>
           <livewire:purchase-list :purchaseId="$purchase->id"></livewire:purchase-list>
               <livewire:purchase-entry :purchaseId="$purchase->id"></livewire:purchase-entry>
