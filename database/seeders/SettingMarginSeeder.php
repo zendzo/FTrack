@@ -15,7 +15,8 @@ class SettingMarginSeeder extends Seeder
     public function run()
     {
         Setting::create([
-            'margin' => 0.2
+            'margin' => 0.2,
+            'user_id' => 1
         ]);
 
         $this->command->info('Input Setting Margin 20%');

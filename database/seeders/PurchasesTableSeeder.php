@@ -22,6 +22,7 @@ class PurchasesTableSeeder extends Seeder
         foreach ($customers as $customer) {
             Purchase::create([
                 'supplier_id' => rand(1,15),
+                'setting_id' => 1,
                 'code' => Str::random(10),
                 'purchase_type_id' => rand(1,2),
                 'purchase_date' => Carbon::now(),

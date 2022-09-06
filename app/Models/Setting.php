@@ -8,5 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
-    protected $fillable = ['margin'];
+    protected $fillable = ['margin','user_id'];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class,'user_id');
+    }
+
+    public function purchase()
+    {
+        return $this->hasMany(Purchase::class);
+    }
 }
