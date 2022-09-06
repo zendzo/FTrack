@@ -227,9 +227,9 @@
                   <td>{{ $product->purchase[0]->purchase_date }}</td>
                   <td>{{ $product->purchase[0]->sent_date }}</td>
                   <td>{{ $product->pivot->quantity }}</td>
-                  <td>{{ $product->pivot->grand_total }}</td>
+                  <td>Rp.{{ number_format($product->pivot->grand_total,2,',','.') }}</td>
                   {{-- <td>{{ $product->quantity }}</td> --}}
-                  <td>{{ $product->pivot->delivery_fee }}</td>
+                  <td>Rp.{{ number_format($product->pivot->delivery_fee,2,',','.') }}</td>
                 </tr>
                 @endforeach
                 @empty
@@ -277,8 +277,8 @@
                 <td>{{ $product->sales[0]->sale_date }}</td>
                 <td>{{ $product->sales[0]->sent_date }}</td>
                 <td>{{ $product->sales[0]->description }}</td>
-                <td>{{ $product->pivot->quantity }}</td>
-                <td>{{ $product->pivot->grand_total }}</td>
+                <td>Rp.{{ number_format($product->pivot->grand_total,2,',','.') }}</td>
+                <td>Rp.{{ number_format($product->pivot->delivery_fee,2,',','.') }}</td>
               </tr>
               @endforeach
               @empty
