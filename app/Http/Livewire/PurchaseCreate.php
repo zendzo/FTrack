@@ -6,6 +6,7 @@ use App\Models\Customer;
 use Livewire\Component;
 use App\Models\Purchase;
 use App\Models\PurchasesType;
+use App\Models\Setting;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Auth;
 use illuminate\Support\Str;
@@ -19,6 +20,7 @@ class PurchaseCreate extends Component
     public $sent_date;
     public $address;
     public $recipient;
+    public $setting_id;
 
     public function render()
     {
@@ -32,6 +34,7 @@ class PurchaseCreate extends Component
     public function mount()
     {
         $this->code = strtoupper(Str::random(10));
+        $this->setting_id = Setting::OrderBy('id','desc')->first();
     }
 
     public function updatedRecipient()
@@ -49,9 +52,10 @@ class PurchaseCreate extends Component
             'purchase_date' => 'required',
             'sent_date' => 'required',
             'address' => 'required|min:5',
-            'recipient' => 'required|min:1'
+            'recipient' => 'required|min:1',
+            'setting_id' => 'required',
         ]);
-        
+
         $purchases = Purchase::create([
             'supplier_id' => $this->supplier_id,
             'code' => $this->code,
@@ -59,7 +63,8 @@ class PurchaseCreate extends Component
             'purchase_date' => $this->purchase_date,
             'sent_date' => $this->sent_date,
             'address' => $this->address,
-            'recipient' => $this->recipient
+            'recipient' => $this->recipient,
+            'setting_id' => $this->setting_id->id
         ]);
 
         $this->resetInput();
