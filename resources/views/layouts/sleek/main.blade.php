@@ -18,8 +18,6 @@
 
   <!-- PLUGINS CSS STYLE -->
   <link href="{{ asset('admin/assets/plugins/nprogress/nprogress.css') }}" rel="stylesheet" />
-  <link href="{{ asset('admin/assets/plugins/datetimepicker/jquery.datetimepicker.min.css') }}" rel="stylesheet" />
-
 
 
   <!-- SLEEK CSS -->
@@ -249,8 +247,6 @@
   <script src="{{ asset('admin/assets/plugins/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/slimscrollbar/jquery.slimscroll.min.js') }}"></script>
   <script src="{{ asset('admin/assets/plugins/jekyll-search.min.js') }}"></script>
-  <script src="{{ asset('admin/assets/plugins/datetimepicker/jquery.datetimepicker.full.min.js') }}"></script>
-
 
 
   @yield('scripts')
