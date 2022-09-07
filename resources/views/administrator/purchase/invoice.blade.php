@@ -55,7 +55,7 @@
         <br>{{ $purchase->customer->name }}
         <br> {{ $purchase->customer->address }}
         <br> Phone: {{ $purchase->customer->phone }}
-        <br> {{ $purchase->created_at->format('D, d-M-Y')}}
+        <br> {{ $purchase->created_at->format('D, d-M-Y H:i')}}
       </address>
     </div>
   </div>
