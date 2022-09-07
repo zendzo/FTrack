@@ -19,8 +19,8 @@ class CreateSalesTable extends Migration
             // $table->string('name');
             $table->string('code',10);
             $table->unsignedBigInteger('sale_type_id');
-            $table->date('sale_date');
-            $table->date('sent_date');
+            $table->dateTime('sale_date');
+            $table->dateTime('sent_date');
             // $table->string('supplier_id');
             $table->string('description');
             $table->integer('paid_amount')->nullable();

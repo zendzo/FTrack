@@ -19,8 +19,8 @@ class CreatePurchasesTable extends Migration
             $table->unsignedBigInteger('setting_id');
             $table->string('code',10);
             $table->unsignedBigInteger('purchase_type_id');
-            $table->date('purchase_date');
-            $table->date('sent_date');
+            $table->dateTime('purchase_date');
+            $table->dateTime('sent_date');
             $table->string('address');
             $table->unsignedBigInteger('recipient');
             $table->integer('paid_amount')->nullable();
