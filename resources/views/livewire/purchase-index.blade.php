@@ -37,8 +37,8 @@
                                 <td>{{$purchase->supplier->name}}</td>
                                 <td>{{$purchase->purchase_type_id}}</td>
                                 <td>{{$purchase->code}}</td>
-                                <td>{{$purchase->purchase_date}}</td>
-                                <td>{{$purchase->sent_date}}</td>
+                                <td>{{$purchase->purchase_date->format('m/d/y H:i')}}</td>
+                                <td>{{$purchase->sent_date->format('m/d/y H:i')}}</td>
                                 <td>{{$purchase->customer->name}}</td>
                                 <td>{{$purchase->address}}</td>
                                 <td>
@@ -47,7 +47,7 @@
                                         array_push($grand_total,$product->pivot->grand_total);
                                         @endphp
                                     @endforeach
-                                    {{ number_format(array_sum($grand_total),2,',','.') }}
+                                    Rp. {{ number_format(array_sum($grand_total),0,',','.') }}
                                 </td>
                                 <td>
                                     @if(!$purchase->completed)

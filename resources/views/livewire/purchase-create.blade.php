@@ -33,7 +33,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <div class="form-group>
+                    <div class="form-group">
                         <label for="city">Jenis Pembayaran</label>
                         <select class="form-control @error('purchase_type_id') is-invalid @enderror" wire:model.lazy="purchase_type_id">
                             <option value="-1">Select</option>
@@ -53,10 +53,9 @@
                         <div class="col-6">
                             <div class="form-group">
                                 <label for="State">Tgl. Pesan</label>
-                                <input type="text" class="form-control dateRange @error('purchase_date') is-invalid @enderror" wire:model="purchase_date"
+                                <input type="text" class="form-control @error('purchase_date') is-invalid @enderror" wire:model="purchase_date"
                                 autocomplete="off"
-                                data-provide="datepicker" data-date-autoclose="true" 
-                                data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                id="purchase_date"                      
                                 onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
                                 @error('purchase_date')
@@ -71,8 +70,7 @@
                                 <label for="Zip">Tgl. Terima</label>
                                 <input type="text" class="form-control dateRange @error('sent_date') is-invalid @enderror" wire:model="sent_date"
                                 autocomplete="off"
-                                data-provide="datepicker" data-date-autoclose="true" 
-                                data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                id="sent_date"                     
                                 onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
                                 @error('sent_date')
