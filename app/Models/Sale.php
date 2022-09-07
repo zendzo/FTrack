@@ -22,7 +22,10 @@ class Sale extends Model
         'confirmed_by_admin',
     ];
 
-    protected $date = ['sale_date', 'sent_date'];
+    protected $casts = [
+        'sale_date' => 'datetime:Y-m-d H:i',
+        'sent_date' => 'datetime:Y-m-d H:i'
+    ];
 
     // public function setSaleDateAttribute($value)
     // {

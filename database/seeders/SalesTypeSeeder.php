@@ -15,8 +15,8 @@ class SalesTypeSeeder extends Seeder
     public function run()
     {
         $salesType = [
-            'Cash',
-            'Transfer'
+            'Bulanan',
+            'Oprasional'
         ];
 
         foreach ($salesType as $type) {

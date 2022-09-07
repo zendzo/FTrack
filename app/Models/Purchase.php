@@ -24,8 +24,8 @@ class Purchase extends Model
     ];
 
     protected $casts = [
-        'purchase_date' => 'datetime',
-        'sent_date' => 'datetime'
+        'purchase_date' => 'datetime:Y-m-d H:i',
+        'sent_date' => 'datetime:Y-m-d H:i'
     ];
 
     public function type()

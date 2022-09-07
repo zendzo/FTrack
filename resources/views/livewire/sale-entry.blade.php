@@ -18,7 +18,7 @@
                     @enderror
                 </td>
                 <td>
-                    <input type="text" wire:model="quantity" class="form-control @error('quantity') is-invalid @enderror" placeholder="Quantity">
+                    <input type="nummber" wire:model="quantity" class="form-control @error('quantity') is-invalid @enderror" placeholder="Quantity">
                     @error('quantity')
                     <div class="invalid-feedback">
                         {{ $message }}

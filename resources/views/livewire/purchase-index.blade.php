@@ -35,7 +35,7 @@
                             <tr>
                                 <td scope="row">{{$purchase->id}}</td>
                                 <td>{{$purchase->supplier->name}}</td>
-                                <td>{{$purchase->purchase_type_id}}</td>
+                                <td>{{$purchase->type->name}}</td>
                                 <td>{{$purchase->code}}</td>
                                 <td>{{$purchase->purchase_date->format('m/d/y H:i')}}</td>
                                 <td>{{$purchase->sent_date->format('m/d/y H:i')}}</td>

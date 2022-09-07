@@ -29,8 +29,8 @@
                 <td>{{$product->name}}</td>
                 <td>{{$product->pivot->quantity ?? ''}}</td>
                 <td>{{$product->unit->symbol}}</td>
-                <td>{{$product->price}}</td>
-                <td>{{$product->pivot->grand_total ?? ''}}</td>
+                <td>Rp. {{number_format($product->price,2,',','.')}}</td>
+                <td>Rp. {{number_format($product->pivot->grand_total,2,',','.')?? ''}}</td>
                 <td><button wire:click="destroy({{$product->pivot->id ?? ''}})" class="btn btn-sm btn-danger text-white"><i class="mdi mdi-trash-can"></i></button></td>
             </tr>
             @endforeach
@@ -38,7 +38,7 @@
         <tfoot>
             <tr>
                 <td colspan="4"><h4 class="pull-right">Grand Total</h4></td>
-                <td colspan="1"><h4>{{ array_sum($grand_total) }}</h4></td>
+                <td colspan="1"><h4>Rp. {{ number_format((int) array_sum($grand_total),2,',','.') }}</h4></td>
             </tr>
         </tfoot>
     </table>

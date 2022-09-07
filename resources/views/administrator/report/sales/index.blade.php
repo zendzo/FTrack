@@ -96,7 +96,7 @@
     <div class="col-lg-12">
       <div class="card card-default">
         <div class="card-header card-header-border-bottom">
-          <h2><i class="mdi mdi-book-multiple"></i> Laporan Pemasukan </h2>
+          <h2><i class="mdi mdi-book-multiple"></i> Laporan Pengeluaran </h2>
         </div>
         <div class="card-body">
           @if (session()->has('message'))
@@ -173,11 +173,10 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Nama</th>
                 <th scope="col">Tipe</th>
                 <th scope="col">Kode</th>
-                <th scope="col">Tgl. Penjualan</th>
-                <th scope="col">Tgl. Pengiriman</th>
+                <th scope="col">Tgl. Belanja</th>
+                <th scope="col">Tgl. Terima</th>
                 <th scope="col">Keterangan</th>
                 <th>Total</th>
               </tr>
@@ -186,7 +185,6 @@
               @forelse ($sales as $sale)
               <tr>
                 <td scope="row">{{$sale->id}}</td>
-                <td>{{$sale->name}}</td>
                 <td>{{$sale->type->name}}</td>
                 <td>{{$sale->code}}</td>
                 <td>{{$sale->sale_date}}</td>
@@ -206,8 +204,8 @@
                     @endphp
                     @endforeach
                   </ul>
-                  <b>Grand Total + PPN 10% : Rp.
-                    {{ number_format($grand_total+($grand_total*0.1),2,',','.') }}
+                  <b>Grand Total : Rp.
+                    {{ number_format($grand_total,2,',','.') }}
                   </b>
                 </td>
               </tr>

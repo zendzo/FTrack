@@ -50,8 +50,7 @@
                                 <label for="State">Tgl. Belanja</label>
                                 <input type="text" class="form-control dateRange @error('sale_date') is-invalid @enderror" wire:model="sale_date"
                                 autocomplete="off"
-                                data-provide="datepicker" data-date-autoclose="true" 
-                                data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                id="sale_date"
                                 onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
                                 @error('sale_date')
@@ -66,8 +65,7 @@
                                 <label for="Zip">Tgl. Terima</label>
                                 <input type="text" class="form-control dateRange @error('sent_date') is-invalid @enderror" wire:model="sent_date"
                                 autocomplete="off"
-                                data-provide="datepicker" data-date-autoclose="true" 
-                                data-date-format="yyyy-mm-dd" data-date-today-highlight="true"                        
+                                id="sent_date"
                                 onchange="this.dispatchEvent(new InputEvent('input'))"
                                 >
                                 @error('sent_date')

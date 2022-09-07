@@ -201,7 +201,7 @@
                   <th scope="col">Nama Barang</th>
                   <th scope="col">Tipe</th>
                   <th scope="col">Kode</th>
-                  <th scope="col">Tgl. Penjualan</th>
+                  <th scope="col">Tgl. Pemesanan</th>
                   <th scope="col">Tgl. Pengiriman</th>
                   <th scope="col">Quantity</th>
                   <th>Harga</th>
@@ -251,8 +251,8 @@
                 <th scope="col">Nama Barang</th>
                 <th scope="col">Tipe</th>
                 <th scope="col">Kode</th>
-                <th scope="col">Tgl. Penjualan</th>
-                <th scope="col">Tgl. Pengiriman</th>
+                <th scope="col">Tgl. Pembelian</th>
+                <th scope="col">Tgl. Terima</th>
                 <th scope="col">Deskripsi</th>
                 <th>Quantity</th>
                 {{-- <th scope="col">Stok Gudang</th> --}}

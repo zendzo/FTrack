@@ -22,7 +22,7 @@ class PurchaseEntry extends Component
     public function render()
     {
         return view('livewire.purchase-entry',[
-            'products' => Product::select(['id','name'])->get()
+            'products' => Product::where('category_id','!=',4)->select(['id','name'])->get()
         ]);
     }
 
