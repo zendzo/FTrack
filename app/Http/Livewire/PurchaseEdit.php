@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\Customer;
 use App\Models\Purchase;
 use App\Models\Supplier;
 use App\Models\PurchasesType;
@@ -25,7 +26,8 @@ class PurchaseEdit extends Component
     {
         return view('livewire.purchase-edit',[
             'purchasesType' => PurchasesType::all(),
-            'suppliers' => Supplier::all()
+            'suppliers' => Supplier::all(),
+            'recipients' => Customer::all()
         ]);
     }
 
@@ -45,7 +47,7 @@ class PurchaseEdit extends Component
     {
         $this->validate([
             'supplier_id' => 'required|min:1',
-            'description' => 'required|min:3'
+            'address' => 'required|min:3'
         ]);
 
         if ($this->id) {
@@ -55,7 +57,7 @@ class PurchaseEdit extends Component
                 'purchase_type_id' => $this->purchase_type_id,
                 'purchase_date' => $this->purchase_date,
                 'sent_date' => $this->sent_date,
-                'adress' => $this->adress,
+                'adress' => $this->address,
                 'recipient' => $this->recipient
             ]);
         }
