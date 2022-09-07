@@ -20,6 +20,12 @@ class Purchase extends Model
         'paid_amount',
         'completed',
         'confirmed_by_admin',
+        'setting_id'
+    ];
+
+    protected $casts = [
+        'purchase_date' => 'datetime',
+        'sent_date' => 'datetime'
     ];
 
     public function type()
