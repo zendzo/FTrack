@@ -79,10 +79,12 @@
             </div>
           </div>
           <livewire:purchase-list :purchaseId="$purchase->id"></livewire:purchase-list>
-              <livewire:purchase-entry :purchaseId="$purchase->id"></livewire:purchase-entry>
+              @if (!$purchase->completed)
+                  <livewire:purchase-entry :purchaseId="$purchase->id"></livewire:purchase-entry>
+              @endif
             @if (Auth::user()->role_id === 1)
                 <a href="{{ route('admin.purchase.invoice', $purchase->id) }}" class="btn btn-lg btn-warning">
-                    <i class=" mdi mdi-file-document"></i> Selesai
+                    <i class=" mdi mdi-file-document"></i> {{ $purchase->completed ? 'Invoice' : 'Selesai' }}
                 </a>
             @endif
       {{-- </form> --}}
