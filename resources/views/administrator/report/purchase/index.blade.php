@@ -49,8 +49,8 @@
     extend: 'pdfHtml5',
     orientation: 'landscape',
     pageSize: 'LEGAL',
-    messageTop: 'Data Order Report',
-    title: 'Data Order ' + '{{ config('app.name') }}',
+    messageTop: 'Laporan Pemasukan',
+    title: 'Laporan Pemasukan ' + '{{ config('app.name') }}',
     text: '<i class="mdi mdi-file-pdf"></i> PDF',
     titleAttr: 'Export rows to PDF format',
     exportOptions: {
@@ -64,7 +64,7 @@
     exportOptions: {
     columns: [0,1,2,3,4,5,6,7]
     },
-    title: 'Data Order ' + '{{ config('app.name') }}'
+    title: 'Laporan Pemasukan ' + '{{ config('app.name') }}'
     },
     {
     extend: 'excelHtml5',
@@ -73,7 +73,7 @@
     exportOptions: {
     columns: [0,1,2,3,4,5,6,7]
     },
-    title: 'Data Order ' + '{{ config('app.name') }}'
+    title: 'Laporan Pemasukan ' + '{{ config('app.name') }}'
     },
     {
     extend: 'print',
@@ -82,7 +82,7 @@
     exportOptions: {
     columns: [0,1,2,3,4,5,6,7]
     },
-    title: 'Data Order ' + '{{ config('app.name') }}'
+    title: 'Laporan Pemasukan ' + '{{ config('app.name') }}'
     },
     ]
     });
