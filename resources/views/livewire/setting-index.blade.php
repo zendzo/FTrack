@@ -37,7 +37,8 @@
                             <tr>
                                 <td scope="row">{{$setting->id}}</td>
                                 <td>{{$setting->margin}} %</td>
-                                <td>{{$setting->author->name}} </td>
+                                <td>{{$setting->author->name}}</td>
+                                <td>{{$setting->description}}</td>
                                 <td>{{$setting->created_at->format('D d/m/y H:m')}}</td>
                                 <td>
                                     @if ($setting->created_at == $setting->updated_at)
@@ -47,12 +48,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    @if($loop->last)
                                     <button wire:click="getSetting({{$setting->id}})" class="btn btn-sm btn-info text-white">Edit</button>
-                                    <span>(saat ini)</span>
-                                    @endif
-                                    @if(!$loop->last)
-                                    <button class="btn btn-sm btn-danger text-white">Terpakai</button>
+                                    @if($setting->default)
+                                    <button class="btn btn-sm btn-danger text-white">Aktif</button>
                                     @endif
                                     <!-- <button wire:click="destroy({{$setting->id}})" class="btn btn-sm btn-danger text-white">Delete</button> -->
                                 </td>

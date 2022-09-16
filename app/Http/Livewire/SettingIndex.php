@@ -16,7 +16,7 @@ class SettingIndex extends Component
     public function render()
     {
         return view('livewire.setting-index',[
-            'settings' => Setting::latest()->paginate(5)
+            'settings' => Setting::orderBy('id')->paginate(10)
         ]);
     }
 

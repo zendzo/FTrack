@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Setting extends Model
 {
     use HasFactory;
-    protected $fillable = ['margin','user_id'];
+    protected $fillable = ['margin','user_id','description','default'];
 
     public function author()
     {

@@ -8,6 +8,8 @@ use Livewire\Component;
 class SettingEdit extends Component
 {
     public $margin;
+    public $description;
+    public $default;
     public $settingId;
 
     protected $listeners = [
@@ -21,6 +23,8 @@ class SettingEdit extends Component
     public function showSetting($setting)
     {
         $this->margin = $setting['margin'];
+        $this->description = $setting['description'];
+        $this->default = $setting['default'];
         $this->settingId = $setting['id'];
     }
 
@@ -28,12 +32,18 @@ class SettingEdit extends Component
     {
         $this->validate([
             'margin' => 'required',
+            'description' => 'required|min:5',
+            'default' => 'required',
         ]);
 
         if ($this->id) {
+            Setting::where('default',true)->update(['default' => false]);
+
             $setting = Setting::findOrfail($this->settingId);
             $setting->update([
                 'margin' => $this->margin,
+                'description' => $this->description,
+                'default' => $this->default,
             ]);
         }
 

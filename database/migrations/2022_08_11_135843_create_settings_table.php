@@ -16,6 +16,8 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
             $table->float('margin');
+            $table->string('description')->nullable();
+            $table->boolean('default')->default(false);
             $table->unsignedBigInteger('user_id');
             $table->timestamps();
         });

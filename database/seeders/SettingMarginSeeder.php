@@ -14,11 +14,24 @@ class SettingMarginSeeder extends Seeder
      */
     public function run()
     {
-        Setting::create([
-            'margin' => 20,
-            'user_id' => 1
-        ]);
+        $margins = [
+            [
+                'margin' => 10,
+                'description' => 'Margin 1-5 KM',
+                'default' => false,
+                'user_id' => 1
+            ],
+            [
+                'margin' => 20,
+                'description' => 'Margin 5-10 KM',
+                'default' => true,
+                'user_id' => 1
+            ],
+        ];
 
-        $this->command->info('Input Setting Margin 20%');
+        foreach ($margins as $key => $margin) {
+            Setting::create($margin);
+        }
+        $this->command->info('Input Data Margin');
     }
 }

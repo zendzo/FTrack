@@ -8,7 +8,8 @@ use App\Models\Setting;
 class SettingCreate extends Component
 {
     public $margin;
-    public $symbol;
+    public $description;
+    public $default = true;
 
     public function render()
     {
@@ -19,11 +20,19 @@ class SettingCreate extends Component
     {
         $this->validate([
             'margin' => 'required',
+            'default' => 'required',
+            'description' => 'required|min:5',
         ]);
+
+        if ($this->default) {
+            Setting::where('default', true)->update(['default' => false]);
+        }
         
         $setting = Setting::create([
             'margin' => $this->margin,
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
+            'description' => $this->description,
+            'default' => $this->default
         ]);
 
         $this->resetInput();
@@ -34,5 +43,7 @@ class SettingCreate extends Component
     public function resetInput()
     {
         $this->margin = null;
+        $this->description = null;
+        $this->default = true;
     }
 }
