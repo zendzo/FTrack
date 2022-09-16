@@ -97,6 +97,24 @@
 
                 <div class="col-sm-6">
                     <div class="form-group">
+                        <label for="setting_id">Margin</label>
+                        <select class="form-control @error('setting_id') is-invalid @enderror" wire:model.lazy="setting_id">
+                            {{-- <option value="-1">Select</option> --}}
+                            @foreach ($settings as $setting)
+                            <option value="{{$setting->id}}">{{$setting->margin}} % ({{ $setting->description }}) - {{
+                                $setting->author->name }}</option>
+                            @endforeach
+                        </select>
+                        @error('setting')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <div class="form-group">
                         <label for="lname">Alamat Penerima</label>
                         <input type="text" class="form-control @error('address') is-invalid @enderror" wire:model.lazy="address"
                             placeholder="Keterangan">

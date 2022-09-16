@@ -22,19 +22,32 @@ class PurchaseCreate extends Component
     public $recipient;
     public $setting_id;
 
+    protected $rules = [
+        'supplier_id' => 'required|min:1',
+        'code' => 'required|min:3',
+        'purchase_type_id' => 'required|min:1',
+        'purchase_date' => 'required',
+        'sent_date' => 'required',
+        'address' => 'required|min:5',
+        'recipient' => 'required|min:1',
+        'setting_id.*' => 'required|min:1',
+    ];
+
     public function render()
     {
-        return view('livewire.purchase-create',[
+        return view('livewire.purchase-create', [
             'purchasesType' => PurchasesType::all(),
             'suppliers' => Supplier::all(),
-            'recipients' => Customer::all()
+            'recipients' => Customer::all(),
+            'settings' => Setting::all()
         ]);
     }
 
     public function mount()
     {
         $this->code = strtoupper(Str::random(10));
-        $this->setting_id = Setting::OrderBy('id','desc')->first();
+        $setting = Setting::where('default', true)->first();
+        $this->setting_id = $setting->id;
     }
 
     public function updatedRecipient()
@@ -45,16 +58,7 @@ class PurchaseCreate extends Component
 
     public function addPurchases()
     {
-        $this->validate([
-            'supplier_id' => 'required|min:1',
-            'code' => 'required|min:3',
-            'purchase_type_id' => 'required|min:1',
-            'purchase_date' => 'required',
-            'sent_date' => 'required',
-            'address' => 'required|min:5',
-            'recipient' => 'required|min:1',
-            'setting_id' => 'required',
-        ]);
+        $this->validate($this->rules);
 
         $purchases = Purchase::create([
             'supplier_id' => $this->supplier_id,
@@ -64,17 +68,17 @@ class PurchaseCreate extends Component
             'sent_date' => $this->sent_date,
             'address' => $this->address,
             'recipient' => $this->recipient,
-            'setting_id' => $this->setting_id->id
+            'setting_id' => $this->setting_id
         ]);
 
         $this->resetInput();
 
-        $this->emit('purchasesStored',$purchases);
+        $this->emit('purchasesStored', $purchases);
 
         if (Auth::user()->role_id === 2) {
             return redirect()->route('front-office.purchases.show', $purchases->id);
         }
-        
+
         return redirect()->route('admin.purchases.show', $purchases->id);
     }
 

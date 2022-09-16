@@ -6,11 +6,13 @@ use App\Models\Customer;
 use App\Models\Purchase;
 use App\Models\Supplier;
 use App\Models\PurchasesType;
+use App\Models\Setting;
 use Livewire\Component;
 
 class PurchaseEdit extends Component
 {
     public $supplier_id;
+    public $setting_id;
     public $code;
     public $purchase_type_id;
     public $purchase_date;
@@ -27,13 +29,15 @@ class PurchaseEdit extends Component
         return view('livewire.purchase-edit',[
             'purchasesType' => PurchasesType::all(),
             'suppliers' => Supplier::all(),
-            'recipients' => Customer::all()
+            'recipients' => Customer::all(),
+            'settings' => Setting::all()
         ]);
     }
 
     public function showPurchases($purchase)
     {
         $this->supplier_id = $purchase['supplier_id'];
+        $this->setting_id = $purchase['setting_id'];
         $this->code = $purchase['code'];
         $this->purchase_type_id = $purchase['purchase_type_id'];
         $this->purchase_date = $purchase['purchase_date'];
@@ -54,6 +58,7 @@ class PurchaseEdit extends Component
             $purchase = Purchase::findOrfail($this->purchaseId);
             $purchase->update([
                 'supplier_id' => $this->supplier_id,
+                'setting_id' => $this->setting_id,
                 'purchase_type_id' => $this->purchase_type_id,
                 'purchase_date' => $this->purchase_date,
                 'sent_date' => $this->sent_date,
