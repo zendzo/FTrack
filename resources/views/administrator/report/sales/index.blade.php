@@ -42,7 +42,7 @@
     text: '<i class="mdi mdi-content-copy"></i> Copy',
     titleAttr: 'Copy rows to clipboard',
     exportOptions: {
-    columns: [0,1,2,3,4,5,6,7]
+    columns: [0,1,2,3,4,5,6]
     }
     },
     {
@@ -54,7 +54,7 @@
     text: '<i class="mdi mdi-file-pdf"></i> PDF',
     titleAttr: 'Export rows to PDF format',
     exportOptions: {
-    columns: [0,1,2,3,4,5,6,7]
+    columns: [0,1,2,3,4,5,6]
     },
     },
     {
@@ -62,7 +62,7 @@
     text: '<i class="mdi mdi-code-tags"></i> CSV',
     titleAttr: 'Export rows to CSV format',
     exportOptions: {
-    columns: [0,1,2,3,4,5,6,7]
+    columns: [0,1,2,3,4,5,6]
     },
     title: 'Laporan Pengeluaran ' + '{{ config('app.name') }}'
     },
@@ -71,7 +71,7 @@
     text: '<i class="mdi mdi-file-excel"></i> Excel',
     titleAttr: 'Export rows to Excel format',
     exportOptions: {
-    columns: [0,1,2,3,4,5,6,7]
+    columns: [0,1,2,3,4,5,6]
     },
     title: 'Laporan Pengeluaran ' + '{{ config('app.name') }}'
     },
@@ -80,7 +80,7 @@
     text: '<i class="mdi mdi-printer"></i> Print',
     titleAttr: 'Print rows',
     exportOptions: {
-    columns: [0,1,2,3,4,5,6,7]
+    columns: [0,1,2,3,4,5,6]
     },
     title: 'Laporan Pengeluaran ' + '{{ config('app.name') }}'
     },
