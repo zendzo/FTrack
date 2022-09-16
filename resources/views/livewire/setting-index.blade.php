@@ -27,6 +27,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Peresentase</th>
                                 <th scope="col">Author</th>
+                                <th scope="col">Keterangan</th>
                                 <th scope="col">Tgl. Posting</th>
                                 <th scope="col">Tgl. Update</th>
                             </tr>
